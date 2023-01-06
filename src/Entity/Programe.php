@@ -74,4 +74,10 @@ class Programe
 
         return $this;
     }
+
+
+    public function __toString()
+    {
+       return $this->cours ; 
+    }
 }

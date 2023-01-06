@@ -19,6 +19,8 @@ class SessionRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Session::class);
+
+        
     }
 
     public function add(Session $entity, bool $flush = false): void
@@ -53,6 +55,41 @@ class SessionRepository extends ServiceEntityRepository
 //            ->getResult()
 //        ;
 //    }
+public function findSessionsPassees(){
+    //Récupérer la date du jour
+    //class native php, on met donc un antislash
+    $now = new \DateTime();
+    return $this->createQueryBuilder('s')
+       ->andWhere('s.dateFin < :val')
+       -> setParameter('val',$now)
+        ->orderBy('s.dateDebut', 'ASC')
+        ->getQuery()
+        ->getResult();
+}
+public function findSessionsEncours(){
+    //Récupérer la date du jour
+    //class native php, on met donc un antislash
+    $now = new \DateTime();
+    return $this->createQueryBuilder('s')
+       ->andWhere('s.dateDebut < :val and s.dateFin > :val ' )
+       -> setParameter('val',$now)
+        ->orderBy('s.dateDebut', 'ASC')
+        ->getQuery()
+        ->getResult();
+}
+public function findSessionsAvenir(){
+    //Récupérer la date du jour
+    //class native php, on met donc un antislash
+    $now = new \DateTime();
+    return $this->createQueryBuilder('s')
+       ->andWhere('s.dateDebut > :val')
+       -> setParameter('val',$now)
+        ->orderBy('s.dateDebut', 'ASC')
+        ->getQuery()
+        ->getResult();
+}
+
+
 
 //    public function findOneBySomeField($value): ?Session
 //    {
