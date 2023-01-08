@@ -6,7 +6,8 @@
 <h1>List des sessions Passees</h1>
 {% for session in SessionsPassees %}
     {{session.formation }}
-    <a href="">{{ session.nomSession}} </a>
+    <a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>
+   
     {{session.dateDebut | date ('Y-m-d') }}
     {{ session.dateFin | date ('Y-m-d') }}
     {{ session.nbPlaceTotal }}  <br>
@@ -14,7 +15,7 @@
 <h1>List des sessions Encours</h1>
 {% for session in SessionsEncours %}
     {{session.formation }}
-    <a href="">{{ session.nomSession}} </a>
+    <a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>
     {{session.dateDebut | date ('Y-m-d') }}
     {{ session.dateFin | date ('Y-m-d') }}
     {{ session.nbPlaceTotal }}  <br>
@@ -22,7 +23,7 @@
 <h1>List des sessions A venir</h1>
 {% for session in SessionAvenir %}
     {{session.formation }}
-    <a href="">{{ session.nomSession}} </a>
+    <a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>
     {{session.dateDebut | date ('Y-m-d') }}
     {{ session.dateFin | date ('Y-m-d') }}
     {{ session.nbPlaceTotal }}  <br>

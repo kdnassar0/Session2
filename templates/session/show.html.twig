@@ -5,7 +5,18 @@
 {% block body %}
 <table>
  {% for programe in session.programes %}
-     {{ programe.cours }}
+   <h1>progrmame</h1> 
+   {{ programe.cours }}
+   {{ programe.duree }}
  {% endfor %}
+
+ <h1>liste des stagiaires</h1>
+ {% for stagiaire in session.stagiaires %}
+   
+   <a href=" {{ path('show_stagiaire',{'id':stagiaire.id}) }} ">{{ stagiaire.nomStagiaire }}</a>
+    
+ {% endfor %}
+
 </table>
+
 {% endblock %}

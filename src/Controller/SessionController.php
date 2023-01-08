@@ -4,9 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Session;
 use App\Repository\SessionRepository;
+use App\Repository\StagiaireRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\HttpFoundation\Response;
 
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -32,10 +33,13 @@ class SessionController extends AbstractController
      * @Route("/session/{id}", name="show_session")
      */
       
-    public function show(Session $session): Response
+    public function show(Session $session,session $stagiaire  ): Response
     {
+       
         return $this->render('session/show.html.twig', [
-           'session'=>$session 
+           'session'=>$session ,
+           'stagiaires'=>$stagiaire
+           
         ]);
     }
 

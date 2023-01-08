@@ -78,6 +78,6 @@ class Programe
 
     public function __toString()
     {
-       return $this->cours ; 
+       return $this->duree ." ". $this->cours ; 
     }
 }

@@ -5,7 +5,8 @@
 {% block body %}
  <h1>programe</h1>
  {% for cours in Cours %}
+ {{ cours.nomCours }} <br>
       {{ cours.categorie }}
-      {{ cours.nomCours }} <br>
+      
  {% endfor %}
 {% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello StagiaireController!{% endblock %}
+
+{% block body %}
+
+<h1>Details d'un stagiaire</h1>
+
+
+ <h1>{{ stagiaire.nomStagiaire ~" "~ stagiaire.prenomStagiaire }} </h1>
+ adresse:{{ stagiaire.adress }} <br>
+ date Naissance : {{ stagiaire.dateNaissance | date("m/d/Y") }} <br>
+ email : {{ stagiaire.email }}
+
+ <h1>sessions prevues : </h1>
+
+{% for stagiaire in stagiaire.sessions %}
+  {{ stagiaire.nomSession }}
+  {{ stagiaire.dateDebut | date("${m/d/Y}") }}
+    
+{% endfor %}
+    
+
+    
+
+
+{% endblock %}

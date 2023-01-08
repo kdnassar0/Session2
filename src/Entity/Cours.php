@@ -108,7 +108,7 @@ class Cours
 
     public function __toString()
     {
-       return $this->nomCours ." ".$this->categorie ;
+       return $this->categorie  ." ". $this->nomCours ;
     }
 
 
