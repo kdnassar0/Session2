@@ -16,7 +16,8 @@
 
 {% for stagiaire in stagiaire.sessions %}
   {{ stagiaire.nomSession }}
-  {{ stagiaire.dateDebut | date("${m/d/Y}") }}
+  (du {{ stagiaire.dateDebut | date("m/d/Y") }}
+ au {{ stagiaire.dateFin | date("m/d/Y") }} )<br>
     
 {% endfor %}
     

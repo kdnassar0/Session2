@@ -100,5 +100,10 @@ class Reference
         return $this;
     }
 
+    public function __toString()
+    {
+       return $this->nomRefernce ." ".$this->prenomRefernce ;
+    }
+
   
 }

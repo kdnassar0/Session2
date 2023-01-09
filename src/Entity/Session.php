@@ -223,7 +223,7 @@ class Session
   
   public function __toString()
   {
-    return $this->nomSession ." ". $this->adress ." ".$this->dateDebut ." ".$this->dateFin ." ".$this->nbPlaceTotal ." ". $this->formation;
+    return $this->nomSession ." ". $this->adress ." ".$this->nbPlaceTotal ." ".$this->formation ;
   }
 
    

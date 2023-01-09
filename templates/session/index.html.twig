@@ -28,4 +28,7 @@
     {{ session.dateFin | date ('Y-m-d') }}
     {{ session.nbPlaceTotal }}  <br>
 {% endfor %}
+
+<a href=" {{ path('add_session') }} ">Ajouter une session</a> <br>
+<a href=" {{ path('add_stagiaire') }} ">Ajouter un stagiaire</a>
 {% endblock %}

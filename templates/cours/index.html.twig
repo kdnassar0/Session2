@@ -5,8 +5,20 @@
 {% block body %}
  <h1>programe</h1>
  {% for cours in Cours %}
- {{ cours.nomCours }} <br>
-      {{ cours.categorie }}
+ <table>
+     <tr>
+          <th>Nom Cours</th>
+          <th>Nom categorie</th>
+          
+     </tr>
+     <tr>
+
+  <td>{{ cours.nomCours }}</td>
+  <td>{{ cours.categorie }}</td>
+     </tr>
+
+ </table>
+ 
       
  {% endfor %}
 {% endblock %}

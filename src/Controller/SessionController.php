@@ -3,10 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Session;
+use App\Form\SessionType;
 use App\Repository\SessionRepository;
-use App\Repository\StagiaireRepository;
 use Doctrine\Persistence\ManagerRegistry;
-
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,6 +28,38 @@ class SessionController extends AbstractController
             "SessionAvenir"=>$SessionsAvenir
         ]);
     }
+
+
+    
+    /**
+     * @Route("/session/add", name="add_session")
+    */
+
+    public function addSession(ManagerRegistry $doctrine,Session $session=null,Request $request)
+    {
+        $form =$this->createForm(SessionType::class,$session); 
+        $form->handleRequest($request);
+
+        if( $form->isSubmitted() && $form->isValid())
+        {
+            $session =$form->getData();
+            $entityManager = $doctrine->getManager();
+            $entityManager->persist($session);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_session');
+
+
+        }
+        return $this->render('session/add.html.twig',
+        ['formAddSession'=>$form->createView()
+    
+    ]);
+
+
+    }
+
+
 
     /**
      * @Route("/session/{id}", name="show_session")
