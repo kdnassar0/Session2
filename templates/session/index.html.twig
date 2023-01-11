@@ -3,32 +3,100 @@
 {% block title %}Hello SessionController!{% endblock %}
 
 {% block body %}
-<h1>List des sessions Passees</h1>
-{% for session in SessionsPassees %}
-    {{session.formation }}
-    <a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>
-   
-    {{session.dateDebut | date ('Y-m-d') }}
-    {{ session.dateFin | date ('Y-m-d') }}
-    {{ session.nbPlaceTotal }}  <br>
-{% endfor %}
-<h1>List des sessions Encours</h1>
-{% for session in SessionsEncours %}
-    {{session.formation }}
-    <a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>
-    {{session.dateDebut | date ('Y-m-d') }}
-    {{ session.dateFin | date ('Y-m-d') }}
-    {{ session.nbPlaceTotal }}  <br>
-{% endfor %}
-<h1>List des sessions A venir</h1>
-{% for session in SessionAvenir %}
-    {{session.formation }}
-    <a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>
-    {{session.dateDebut | date ('Y-m-d') }}
-    {{ session.dateFin | date ('Y-m-d') }}
-    {{ session.nbPlaceTotal }}  <br>
-{% endfor %}
 
-<a href=" {{ path('add_session') }} ">Ajouter une session</a> <br>
-<a href=" {{ path('add_stagiaire') }} ">Ajouter un stagiaire</a>
+<div class="sessions">
+<h2>List des sessions Passees</h2>
+<table>
+    <tr>
+        <th>Nom Formation</th>
+        <th>Nom Session</th>
+        <th>Date Début</th>
+        <th>Date Fin</th>
+        <th>NB Places</th>
+        <th>Reference</th>
+     
+    </tr>
+{% for session in SessionsPassees %}
+
+    <tr>
+        <td> {{session.formation }} </td>
+        <td><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
+        <td> {{session.dateDebut | date ('Y-m-d') }} </td>
+        <td>  {{ session.dateFin | date ('Y-m-d') }}</td>
+        <td> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
+        <td>{{ session.reference }}</td>
+        <td><a href=" {{ path ('edit_session',{'id':session.id})  }}">edit</a> </td>
+        <td> <a href="{{ path ('delete_session',{'id':session.id}) }}">supprimer</a></td>
+     
+
+    </tr>
+ 
+
+{% endfor %}
+</table>
+<h2>List des sessions Encours</h2>
+<table>
+    <tr>
+        <th>Nom Formation</th>
+        <th>Nom Session</th>
+        <th>Date Début</th>
+        <th>Date Fin</th>
+        <th>NB Places</th>
+        <th>Reference</th>
+     
+    </tr>
+{% for session in SessionsEncours %}
+
+    <tr>
+        <td> {{session.formation }} </td>
+        <td><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
+        <td> {{session.dateDebut | date ('Y-m-d') }} </td>
+        <td>  {{ session.dateFin | date ('Y-m-d') }}</td>
+        <td> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
+        <td>{{ session.reference }}</td>
+        <td><a href=" {{ path ('edit_session',{'id':session.id})  }}">edit</a> </td>
+        <td> <a href="{{ path ('delete_session',{'id':session.id}) }}">supprimer</a></td>
+        <td>  </td>
+
+    </tr>
+ 
+
+{% endfor %}
+</table>
+<h2>List des sessions A venir</h2>
+<table>
+    <tr>
+        <th>Nom Formation</th>
+        <th>Nom Session</th>
+        <th>Date Début</th>
+        <th>Date Fin</th>
+        <th>NB Places</th>
+        <th>Reference</th>
+     
+    </tr>
+{% for session in SessionAvenir %}
+
+    <tr>
+        <td> {{session.formation }} </td>
+        <td><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
+        <td> {{session.dateDebut | date ('Y-m-d') }} </td>
+        <td>  {{ session.dateFin | date ('Y-m-d') }}</td>
+        <td> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
+        <td>{{ session.reference }}</td>
+        <td><a href=" {{ path ('edit_session',{'id':session.id})  }}">edit</a> </td>
+        <td> <a href="{{ path ('delete_session',{'id':session.id}) }}">supprimer</a></td>
+
+    </tr>
+ 
+
+{% endfor %}
+</table>
+</div>
+
+
+
+
+<h1><a href=" {{ path('add_session') }} ">Ajouter une session</a> </h1><br>
+<h1><a href=" {{ path ('add_stagiaire') }} ">Ajouter un stagiaire</a></h1>
+<h1><a href=" {{ path ('add_programe') }} ">Ajouter un programe</a></h1>
 {% endblock %}

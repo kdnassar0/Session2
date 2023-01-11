@@ -51,6 +51,55 @@ class StagiaireController extends AbstractController
       
     }
 
+    /**
+     * @Route("/stagiaire/", name="app_stagiaire")
+     */
+
+     public function toutsLesStagiaire(StagiaireRepository $s)
+     
+     {
+        $stagiaires =$s->findBy([],['nomStagiaire' =>'ASC']);
+
+        return $this->render('stagiaire/index.html.twig', [
+           'stagiaires' =>$stagiaires
+            
+            
+         ]);
+
+     }
+
+
+
+
+
+    /**
+     * @Route("/stagiaire/{id}/delete/{idStagiaire}", name="delete_stagiaire")
+     */
+
+     public function supprimerStagiaire(ManagerRegistry $doctrine,Session $session,Stagiaire $stagiaire,int $idStagiaire)
+     {
+        $entityManager = $doctrine->getManager();
+        $stagiaire =$entityManager->getRepository(Stagiaire::class)->find($idStagiaire);
+        $session->removeStagiaire($stagiaire);
+        $entityManager ->flush();
+         
+        return $this->redirectToRoute('show_session', ["id" => $session->getId()]) ;
+     }
+    /**
+     * @Route("/stagiaire/{id}/ajouter/{idStagiaire}", name="ajouter_stagiaire")
+     */
+
+     public function ajouterStagiaire(ManagerRegistry $doctrine,Session $session,Stagiaire $stagiaire,int $idStagiaire)
+     {
+        $entityManager = $doctrine->getManager();
+        $stagiaire =$entityManager->getRepository(Stagiaire::class)->find($idStagiaire);
+        $session->addStagiaire($stagiaire);
+        $entityManager ->flush();
+         
+        return $this->redirectToRoute('show_session', ["id" => $session->getId()]) ;
+     }
+
+
 
     /**
      * @Route("/stagiaire/{id}", name="show_stagiaire")

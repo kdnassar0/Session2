@@ -49,6 +49,11 @@ class Stagiaire
      */
     private $sessions;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $sexe;
+
     public function __construct()
     {
         $this->sessions = new ArrayCollection();
@@ -149,7 +154,19 @@ class Stagiaire
 
     public function __toString()
     {
-      return  $this->nomStagiaire ." ".$this->prenomStagiaire ." ".$this->adress ." ".$this->email ." ".$this->sessions ;
+      return  $this->nomStagiaire ." ".$this->prenomStagiaire ." ".$this->adress ." ".$this->email ." ".$this->sessions ."".$this->sexe;
+    }
+
+    public function getSexe(): ?string
+    {
+        return $this->sexe;
+    }
+
+    public function setSexe(string $sexe): self
+    {
+        $this->sexe = $sexe;
+
+        return $this;
     }
 
   

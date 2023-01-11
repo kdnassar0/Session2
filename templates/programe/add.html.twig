@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProgrameController!{% endblock %}
+
+{% block body %}
+<main>
+<h2>Ajouter un programe</h2>
+
+
+{{ form_start(formAddPrograme) }}
+  
+        <div class="form">
+        
+            {{ form_row(formAddPrograme.session) }}
+            {{ form_row(formAddPrograme.cours) }}   
+            {{ form_row(formAddPrograme.duree) }}
+            {{ form_row(formAddPrograme.submit) }}
+
+        </div> 
+            
+     
+{{ form_end(formAddPrograme) }}
+
+
+</main>
+{% endblock %}

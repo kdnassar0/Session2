@@ -4,19 +4,37 @@
 
 {% block body %}
 <table>
+  <h2>progrmame</h2> 
  {% for programe in session.programes %}
-   <h1>progrmame</h1> 
    {{ programe.cours }}
    {{ programe.duree }}
+   <a href="{{ path ('delete_programe',{'id':programe.id}) }}">supprimer</a><br>
  {% endfor %}
 
- <h1>liste des stagiaires</h1>
- {% for stagiaire in session.stagiaires %}
-   
-   <a href=" {{ path('show_stagiaire',{'id':stagiaire.id}) }} ">{{ stagiaire.nomStagiaire }}</a>
+ 
+ <h1>Liste des stagiaires dans cette session :</h1>
+ 
+ {% for stagiaire in stagiaires %}
+ 
+ <a href=" {{ path ('show_stagiaire',{'id':stagiaire.id}) }} ">{{ stagiaire.nomStagiaire }}</a>
+ <a href=" {{ path ('delete_stagiaire',{'id':session.id,'idStagiaire':stagiaire.id}) }}">Desinscrire</a><br>
+ 
+ {% endfor %} 
+ <h2>liste des stagiaire pas inscrits :</h2>
+
+ {% if session.stagiaires |length == session.nbPlaceTotal   %}
+  <p>Session complète, vous ne pouvez plus inscrire de stagiaires</p>
+ {% else %}
+  {% for stagiaire in nonInscrits %}
     
- {% endfor %}
+    <a href=" {{ path ('show_stagiaire',{'id':stagiaire.id}) }} ">{{ stagiaire.nomStagiaire }}</a>
+    <a href=" {{ path ('ajouter_stagiaire',{'id':session.id,'idStagiaire':stagiaire.id}) }}">ajouter</a><br>
+      
+  {% endfor %} 
+ {% endif %}
+
 
 </table>
+
 
 {% endblock %}

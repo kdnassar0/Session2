@@ -3,9 +3,14 @@
 {% block title %}Hello StagiaireController!{% endblock %}
 
 {% block body %}
+<h1>touts les stagiaires </h1>
+{% for stagiaire in stagiaires %}
 
 
+ {{ stagiaire.nomStagiaire }}
     
 {% endfor %}
+
+
 
 {% endblock %}
