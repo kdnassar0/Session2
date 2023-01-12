@@ -14,13 +14,21 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
+
+    
+        
+   
     <body>
         <nav>
             <ul>
-                <li><a href=" {{ path ('app_session') }} ">sessions</a></li>
-               <li><a href=" {{ path ('app_stagiaire') }} ">stagiaires</a></li>
+                {% if app.user %}
+                    <li><a href="#"></a>{{app.user.pseudo }}</li>
+                    <li><a href=" {{ path ('app_session') }} ">sessions</a></li>
+                    <li><a href=" {{ path ('app_stagiaire') }} ">stagiaires</a></li>
+                {% endif %}
             </ul>
         </nav>
         {% block body %}{% endblock %}
     </body>
+  
 </html>

@@ -55,8 +55,8 @@ nav {
    display: flex;
    align-items: center;
    justify-content:center ;
-   background-color: burlywood;
-   padding: 50px;
+   background-color:#485B73;
+
   
 }
 
@@ -76,12 +76,19 @@ li a{
 
  th, td {
  
-    text-align: center;
-    padding: 10px;
+     text-align: center;
+     padding: 10px;
       border-collapse: collapse;
-   
-
-  }  
+  
+  } 
+  
+  table{
+    background-color: #D98C5F;
+    width:60%;
+    border-radius: 5px;
+    
+  }
+ 
 
   .sessions
   {
@@ -94,11 +101,12 @@ gap: 10px;
 margin: 2%;
   }
 
-  table{
-    border: 1px solid;
-  }
 
+.listePrograme
+{
+    width: 24%;
 
+}
 
 
 

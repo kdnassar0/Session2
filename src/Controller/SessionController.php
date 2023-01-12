@@ -20,6 +20,7 @@ class SessionController extends AbstractController
      */
     public function index(SessionRepository $s): Response
     {
+        
         $sessionsPassees = $s -> findSessionsPassees() ;
         $SessionsEncours = $s -> findSessionsEncours();
         $SessionsAvenir = $s -> findSessionsAvenir();
@@ -30,12 +31,15 @@ class SessionController extends AbstractController
             "SessionAvenir"=>$SessionsAvenir
         ]);
     }
+  
+
+    
 
 
     
     /**
      * @Route("/session/add", name="add_session")
-     * @Route("/session/edit",name="edit_session")
+     * @Route("/session/edit/{id}",name="edit_session")
     */
 
     public function addSession(ManagerRegistry $doctrine,Session $session=null,Request $request)
@@ -88,20 +92,26 @@ class SessionController extends AbstractController
      * @Route("/session/{id}", name="show_session")
      */
       
-    public function show(Session $session,session $stagiaire,StagiaireRepository $sr ): Response
+    public function show(Session $session,Session $stagiaire,StagiaireRepository $sr ): Response
     {
-
+        
         $session_id = $session->getId();
         $nonIncrits = $sr ->findStagiaireNonInscrits($session_id);
         $stagiaires =$session->getStagiaires();
        
+
+       
         return $this->render('session/show.html.twig', [
            'session'=>$session ,
            'stagiaires'=>$stagiaires ,
-           'nonInscrits'=>$nonIncrits
+           'nonInscrits'=>$nonIncrits,
+           ''
+         
            
         ]);
     }
+
+
 
 
 }
