@@ -29,6 +29,10 @@ h1{
     min-width: 100%;
 }
 
+.listDesStagiaire tr td a {
+    color: white;
+}
+
 
 main{
     display: flex;
@@ -57,10 +61,10 @@ nav {
    align-items: center;
    justify-content:center ;
    background-color:rgb(228, 38, 98) ;
-   width: 60%;
+   width: 50%;
    margin-top: 3%;
 
-   border-radius: 20px;
+   /* border-radius: 20px; */
 }
 .containerNav{
     width: 100%;
@@ -121,6 +125,13 @@ li a{
 .fa-trash-can{
   color: white;
   }
+
+  .fa-square-plus{
+    color: white;
+  }
+  .fa-minus{
+    color: white;
+  }
  .champFormation{
     /* border-radius: 0px 0px 0px 20px; */
     background-color: rgb(178, 79, 122);
@@ -148,14 +159,11 @@ align-items:center ;
 justify-content: center;
 flex-direction: column;
 margin: 2%;
+gap: 10px;
   }
 
 
-.listePrograme
-{
-    width: 24%;
 
-}
 
 
 
@@ -177,5 +185,34 @@ h2{
 
 }
 
+.datails{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+   
+   
+
+}
+.detailsSession{
+ background-color: rgba(153, 205, 50, 0.466);
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;  
+    /* border-radius: 50%;  */
+    border: 1px dashed;
+    
+}
+
+.listDesStagiaire{
+    display: flex;
+    width: 100%;
+  
+}
 
 

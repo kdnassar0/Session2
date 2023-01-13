@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReferenceController!{% endblock %}
+
+{% block body %}
+<h1>Liste des formateurs</h1>
+{% for reference in references %}
+   {{ reference }}
+{% endfor %}
+
+{# <h1>session de formateur</h1>
+{% for session in oneReference.sessions %}
+   {{ session.nomSession }}
+   
+{% endfor %}  #}
+
+
+{{form (formAddReference) }}
+
+{% endblock %}
+
+
+
+
+
+
