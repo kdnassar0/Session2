@@ -19,11 +19,7 @@ class ProgrameTypePhpType extends AbstractType
     {
         $builder
             ->add('duree',NumberType::class,['attr'=>['class'=>'formChamp']])
-            ->add('session',EntityType::class,[
-                'class'=>Session::class,
-                'choice_label'=>'nomSession',
-                'attr'=> ['class'=>'formChamp']
-            ])
+            
             ->add('cours',EntityType::class,[
                 'class'=>Cours::class,
                 'choice_label'=>'nomCours',

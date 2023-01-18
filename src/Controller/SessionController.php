@@ -3,10 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Session;
+use App\Entity\Programe;
 use App\Entity\Stagiaire;
 use App\Form\SessionType;
+use Doctrine\ORM\EntityManager;
+use App\Form\ProgrameTypePhpType;
 use App\Repository\SessionRepository;
+use App\Repository\ProgrameRepository;
 use App\Repository\StagiaireRepository;
+// use Symfony\Component\BrowserKit\Request;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -92,20 +97,49 @@ class SessionController extends AbstractController
      * @Route("/session/{id}", name="show_session")
      */
       
-    public function show(Session $session,Session $stagiaire,StagiaireRepository $sr ): Response
+    public function show(Session $session,Session $stagiaire,StagiaireRepository $sr,ProgrameRepository  $pr ,Programe $programe = null,Request $request,ManagerRegistry $doctrine,int $id  ): Response
     {
         
         $session_id = $session->getId();
         $nonIncrits = $sr ->findStagiaireNonInscrits($session_id);
         $stagiaires =$session->getStagiaires();
+
+        $nonProgramees = $pr->findCoursNonProgrammees($session_id);
        
+
+        $tableau = [] ;
+        foreach($nonProgramees as $index => $cours){
+                 $programe = new Programe() ;
+                 $programe->setCours($cours);
+                 $programe->setSession($session);
+                 $index = $this->createForm(ProgrameTypePhpType::class,$programe)  ;
+                 $index->handleRequest($request);
+                 $tableau [] = $index->createView();
+
+                 if($index->isSubmitted() &&  $index->isValid()){
+                  
+                    $programe =$index->getData();
+                    
+                    $entityManager =$doctrine->getManager();
+                    $session=$entityManager->getRepository(Session::class)->find($id);
+                    $session->addPrograme($programe);
+                    $entityManager ->persist($programe);
+                    $entityManager->flush();
+
+        return $this->redirectToRoute('show_session',['id'=>$id]);
+
+
+                 }
+
+        }
 
        
         return $this->render('session/show.html.twig', [
            'session'=>$session ,
            'stagiaires'=>$stagiaires ,
            'nonInscrits'=>$nonIncrits,
-           ''
+           'nonProgramees'=>$nonProgramees,
+           'tableau'=>$tableau
          
            
         ]);

@@ -68,6 +68,20 @@ class StagiaireController extends AbstractController
 
      }
 
+    /**
+     * @Route("/stagiaire/{id}/supprimer",name="supprimer_stagiaire")
+     */
+
+     public function supprimerUnStagiaire(ManagerRegistry $doctrine,
+     Stagiaire $stagiaire){
+        $entityManager = $doctrine->getManager(); 
+        $entityManager->remove($stagiaire);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_stagiaire');
+
+     }
+
 
 
 
@@ -98,6 +112,9 @@ class StagiaireController extends AbstractController
          
         return $this->redirectToRoute('show_session', ["id" => $session->getId()]) ;
      }
+
+
+
 
 
 

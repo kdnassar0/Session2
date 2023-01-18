@@ -24,7 +24,7 @@ class ReferenceController extends AbstractController
       
 
         $references = $re ->findBy([],['nomRefernce'=>'ASC']);
-        // $oneReference = $doctirne->getRepository(Reference::class)->findOneBy(['id'=>$id]) ;
+        $oneReference = $doctirne->getRepository(Reference::class)->findOneBy(['id'=>$id]) ;
         
         
         
@@ -43,7 +43,7 @@ class ReferenceController extends AbstractController
 
         return $this->render('reference/index.html.twig', [
             'references'=>$references ,
-            // 'oneReference'=>$oneReference,
+            'oneReference'=>$oneReference,
             'formAddReference'=>$form->createView()
            
           

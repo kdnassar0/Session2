@@ -3,14 +3,23 @@
 {% block title %}Hello StagiaireController!{% endblock %}
 
 {% block body %}
-<h1>touts les stagiaires </h1>
+
+<main>
+<span>Touts les stagiaires </span>
+
+
+<div class="stagiaires">
 {% for stagiaire in stagiaires %}
+    <div class="elements">
+        <div class="elementsListStagiaire">
+            <a href="{{path ('show_stagiaire',{'id':stagiaire.id})}}">{{ stagiaire.nomStagiaire }} </a>
+            {{ stagiaire.prenomStagiaire }}
+        </div>
 
-
- {{ stagiaire.nomStagiaire }}
-    
+      <a href=" {{ path ('supprimer_stagiaire',{'id':stagiaire.id}) }}">supprimer</a> 
+    </div>
 {% endfor %}
-
-
-
-{% endblock %}
+</div>
+</main>
+<h1><a href=" {{ path ('add_stagiaire') }} ">Ajouter un stagiaire</a></h1>
+{% endblock %}  

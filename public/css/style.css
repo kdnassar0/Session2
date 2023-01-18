@@ -50,7 +50,10 @@ main{
 
 body{
     min-width:100vw ;
-  background-color: aqua;
+ /* background-image:url('https://www.arbd.com/wp-content/uploads/2014/02/AdobeStock_92810459-1500x1000.jpeg'); */
+
+background-repeat: no-repeat;
+background-size: 100%;
 
 
 
@@ -60,11 +63,13 @@ nav {
    display: flex;
    align-items: center;
    justify-content:center ;
-   background-color:rgb(228, 38, 98) ;
+   background-color: rgb(5, 88, 100);
    width: 50%;
-   margin-top: 3%;
+   margin-top: 1%;
+   padding: 20px;
+   border-radius: 10px;
+   border: 1px white;
 
-   /* border-radius: 20px; */
 }
 .containerNav{
     width: 100%;
@@ -105,14 +110,12 @@ li a{
   } 
   th{
 
-    background-color: rgb(178, 79, 122);
+    background-color: rgb(5, 88, 100);
    
   }
   
   table{
-    /* background-color: #010000da; */
     width:60%;
-    /* border-radius: 0px 0px 20px 20px; */
     color: white;
     border-collapse: collapse;
 
@@ -132,14 +135,10 @@ li a{
   .fa-minus{
     color: white;
   }
- .champFormation{
-    /* border-radius: 0px 0px 0px 20px; */
-    background-color: rgb(178, 79, 122);
-   
- }
+
 
 .champSession{
-    background-color: rgba(239, 238, 198, 0.766); 
+    background-color: rgba(109, 108, 15, 0.766); 
 }
 tr a{
     text-decoration: none;
@@ -159,7 +158,7 @@ align-items:center ;
 justify-content: center;
 flex-direction: column;
 margin: 2%;
-gap: 10px;
+gap: 100px;
   }
 
 
@@ -190,11 +189,21 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    /* gap: 20px; */
     
    
    
 
+}
+.toutsDetailsSession{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.datails table{
+    width: 20%;
+   
 }
 .detailsSession{
  background-color: rgba(153, 205, 50, 0.466);
@@ -203,7 +212,7 @@ h2{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 30px;  
+    /* padding: 30px;   */
     /* border-radius: 50%;  */
     border: 1px dashed;
     
@@ -211,8 +220,41 @@ h2{
 
 .listDesStagiaire{
     display: flex;
-    width: 100%;
+    width: 45%;
   
 }
 
 
+.stagiaires{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid; */
+    width: 80%;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+
+
+span {
+    font-size: 35px;
+    color: bisque;
+}
+
+
+.elements{
+    width: 40%;
+    display: flex;
+   align-items: center;
+   justify-content: space-between;
+   border: 1px solid;
+   padding: 20px;
+ 
+
+}
+.elementsListStagiaire{
+    font-size: 1.5em;
+
+}

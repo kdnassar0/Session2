@@ -39,6 +39,46 @@ class ProgrameRepository extends ServiceEntityRepository
         }
     }
 
+
+
+
+
+//afficher les cours non programmeés
+
+public function findCoursNonProgrammees($sessionId){
+
+    $em =$this->getEntityManager();
+    $sub=$em->createQueryBuilder();
+
+    $qd = $sub ;
+    $qd->select('c')
+
+    ->from('App\Entity\Cours','c')
+    ->leftJoin('c.programes','p')
+    ->innerJoin('p.session','session')
+    ->where('session.id = :id'); 
+
+    $sub = $em->createQueryBuilder();
+    $sub->select('st')
+
+    ->from('App\Entity\Cours','st')
+    ->where($sub->expr()->notIn('st.id',$qd->getDQL()))
+    ->setParameter('id',$sessionId);
+    // ->orderBy('st.nomPrograme');
+
+    $query = $sub->getQuery();
+    return $query->getResult();
+}
+
+
+
+
+
+
+
+
+
+
 //    /**
 //     * @return Programe[] Returns an array of Programe objects
 //     */

@@ -23,7 +23,7 @@
 </div>
 
 
-
+  
 
 
 <table>
@@ -91,6 +91,10 @@
   <th>Ajouter</th>
 
 </tr>
+
+
+
+
   {% for stagiaire in nonInscrits %}
     <tr>
       <td> <a href=" {{ path ('show_stagiaire',{'id':stagiaire.id}) }} ">{{ stagiaire.nomStagiaire }}</a></td>
@@ -108,5 +112,34 @@
 
 </div>
 
+
+
+{% for table in tableau %}
+{# {{ dump(table) }} #}
+
+
+{{ form(table) }}
+<table>
+  <tr>
+    {# <th>Nom cours</th>
+    <th>Categorie</th>
+    <th>duree</th>
+    <th>ajouter</th> #}
+
+  </tr>
+
+  <tr>
+    {# <td>{{ tableau.nomCours }}</td>
+    <td> {{ tableau.categorie }}</td>
+    <td>{{ tableau.duree }}</td> #}
+
+
+
+  </tr>
+  
+
+  
+</table>
+{% endfor %}
 
 {% endblock %}
