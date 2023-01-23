@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="{{ asset ('css/style.css') }}">
@@ -18,18 +19,26 @@
     </head>
 
     <body>
+
+        
         <div class="containerNav">
+            
             <nav>
+              
+                <img src="https://www.pngkey.com/png/detail/335-3355322_online-application-icon.png" alt="">
                 <ul>
-                    {% if app.user %}
-                        <li><a href="#"></a>{{app.user.pseudo }}</li>
+                    {# {% if app.user %} #}
+                   
+                        {# <li><a href="#"></a>{{app.user.pseudo }}</li> #}
+
+                        
                         <li><a href=" {{ path ('app_session') }} ">sessions</a></li>
                         <li><a href=" {{ path ('app_stagiaire') }} ">stagiaires</a></li>
                         <li><a href="{{ path('app_categorie') }}">Categorie</a></li>
                         <li><a href="{{ path('app_logout') }}">Logout</a></li>
 
                     
-                    {% endif %}
+                    {# {% endif %} #}
                 </ul>
             </nav>
         </div>

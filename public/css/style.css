@@ -2,26 +2,237 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
-form {
-   border: 1px solid;
-   padding: 20px;
-   width: 20%;
+
+
+                    /* body  */
+body{
+    min-width:100% ;
+    /* background-color: #011527; */
+
+}
+
+                /* fin body  */
+ 
+
+
+/* nav */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 15%;
+    background-color: #011527;
+    position: fixed;
+   
+}
+.containerNav{
+    width: 35%;
+
+}
+
+img{
+    height: 150px;
+    width: 150px;
+    border-radius: 40%;
+}
+
+
+ul {
+    display: flex;
+    width: 100%;
+    gap: 40px;
+    flex-direction: column;
+    list-style-type: none ;
+    /* background-color: black ; */
   
 }
 
-h1{
+li{
     width: 100%;
     text-align: center;
+      /* background-color: rgba(18, 25, 123, 0.486) ; */
+      padding: 10px;
+  
+    
+}
+li a{
+    font-size: 20px;
+    text-decoration: none;
+    color:white; 
 }
 
-.formChamp{
+ul :hover {
+    background-color: rgb(22, 22, 98) ;
+}
+
+/* fin nav  */
+
+
+
+
+
+
+
+
+/* session  */
+.champFormSession {
+display: flex;
+flex-direction: column;
+background-color: #011527;
+padding: 20px;
+border-radius: 20px;
+
+
+}
+
+.champFormSession div label{
+    color: white;
+}
+
+
+
+.champFormSession div input{
+    width: 100%;
+
+}
+.champFormSession div label,input{
+    display: flex;
+   
+   
+
+
+}
+.sessions{
+    display:flex;
+    align-items:flex-start   ;
+    flex-direction: column;
+    width: 60%;
+    gap: 20px;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+  
+    
+      }
+
+      
+    
+.formulaireSession{
     display: flex;
     align-items: center;
-    justify-content: center;
-   
+    justify-content: flex-end;
+    gap: 10px;
+
+  
+  
    
 }
+.formulaireSession form{
+
+ width: 100% ;
+
+
+        
+    }
+
+
+
+    .sessionElements{
+        display: flex;
+        /* align-items: center; */
+      justify-content: flex-end ;
+        flex-direction: row;
+        width: 100%;
+        gap: 10px;
+    }
+
+/* fin session  */
+
+
+
+
+
+/* tables sessions  */
+
+.sessions table{
+    width: 100%;
+  
+    
+   
+}
+
+ 
+table{
+    width:60%;
+    color: black;   
+    /* border-collapse: collapse; */
+   
+    
+
+  }
+.fa-pen-to-square{
+  color:white;
+  }
+.fa-trash-can{
+  color:white;
+  }
+
+  .fa-square-plus{
+    color:white;
+  }
+  .fa-minus{
+    color:white;
+  }
+
+
+.champSession{
+    background-color: rgba(109, 108, 15, 0.766); 
+}
+tr a{
+    text-decoration: none;
+   
+
+}
+
+tr .champSession:hover {
+    background-color: aliceblue;
+    transition: 0.5s;
+}
+
+
+th, td {
+ 
+    text-align: center;
+    padding: 10px;
+     border-collapse: collapse;
+     border: 1px solid black;
+     color: white ;
+     background-color: black;
+    
+    
+    
+ 
+ } 
+ th{
+    background-color: #011527 ;
+ }
+ 
+
+/* fin tables sessions  */
+
+
+
+
+
+
+
+
+
 
 
 
@@ -48,213 +259,180 @@ main{
 
 }
 
-body{
-    min-width:100vw ;
- /* background-image:url('https://www.arbd.com/wp-content/uploads/2014/02/AdobeStock_92810459-1500x1000.jpeg'); */
-
-background-repeat: no-repeat;
-background-size: 100%;
-
-
-
-}
-
-nav {
-   display: flex;
-   align-items: center;
-   justify-content:center ;
-   background-color: rgb(5, 88, 100);
-   width: 50%;
-   margin-top: 1%;
-   padding: 20px;
-   border-radius: 10px;
-   border: 1px white;
-
-}
-.containerNav{
-    width: 100%;
-    display: flex;
-    align-items: center;
-   justify-content: center;
-   margin: 20px;
-}
-nav a {
-    color: white;
-}
-
-ul {
-    display: flex;
-    gap: 20px;
-    list-style-type: none;
-  
-}
-li a{
-    font-size: 20px;
-    text-decoration: none;
-    
-}
-
-
-
- th, td {
- 
-     text-align: center;
-     padding: 10px;
-      border-collapse: collapse;
-      border: 1px solid white;
-      /* border: 0px; */
-      background-color: black;
-      
-     
-  
-  } 
-  th{
-
-    background-color: rgb(5, 88, 100);
-   
-  }
-  
-  table{
-    width:60%;
-    color: white;
-    border-collapse: collapse;
-
-
-    
-  }
-.fa-pen-to-square{
-  color: white;
-  }
-.fa-trash-can{
-  color: white;
-  }
-
-  .fa-square-plus{
-    color: white;
-  }
-  .fa-minus{
-    color: white;
-  }
-
-
-.champSession{
-    background-color: rgba(109, 108, 15, 0.766); 
-}
-tr a{
-    text-decoration: none;
-    color: rgb(0, 1, 2);
-
-}
-
-tr .champSession:hover {
-    background-color: aliceblue;
-    transition: 0.5s;
-}
-  .sessions
-  {
-
-display:flex;
-align-items:center ;
-justify-content: center;
-flex-direction: column;
-margin: 2%;
-gap: 100px;
-  }
-
-
-
-
-
-
-
-
-
-h2{
-    background-color:rgb(228, 38, 98) ;
-    width: 60%;
-    border-radius: 10px 10px 0px 0px;
-    padding: 10px;
-
-  
-
-}
-
-.enCours , .aVenir {
-    margin-top: 20px;
-
-}
-
-.datails{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* gap: 20px; */
-    
-   
-   
-
-}
 .toutsDetailsSession{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
     flex-direction: column;
-}
-.datails table{
-    width: 20%;
-   
+    gap: 20px;
+  
+  
 }
 .detailsSession{
- background-color: rgba(153, 205, 50, 0.466);
-    width: 25%;
+    background-color: #011527 ;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* padding: 30px;   */
-    /* border-radius: 50%;  */
-    border: 1px dashed;
-    
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
 }
+.detailsSession h1,h2 {
+    color: white;
+}
+
 
 .listDesStagiaire{
     display: flex;
-    width: 45%;
-  
+    flex-direction: row;
+   
+    width: 60%;
+
+ 
 }
 
+
+.listDesStagiaire table th ,tr td{
+    border-color: white;
+}
+.listProgrames table th, tr td{
+    border-color: white;
+}
+.listProgrames{
+    display: flex;
+    flex-direction: row;
+    /* gap: 20px;   */
+    width: 60%;
+
+}
+.listProgrames table tr td form div {
+display: flex;
+flex-direction: row;
+}
+
+
+/* stagiaires */
 
 .stagiaires{
     display: flex;
-    justify-content: center;
     align-items: center;
-    /* border: 1px solid; */
-    width: 80%;
-    flex-wrap: wrap;
-    gap: 20px;
-
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
-
-
-span {
-    font-size: 35px;
-    color: bisque;
-}
-
-
-.elements{
-    width: 40%;
+.formulaireStagiaires{
     display: flex;
-   align-items: center;
-   justify-content: space-between;
-   border: 1px solid;
-   padding: 20px;
+    flex-direction: column;
+    background-color: #011527;
+    padding: 20px;
+    border-radius: 20px;
+   
+    
+}
+
+.formulaireStagiaires label {
+    color: white;
+}
+.formulaireStagiaires input {
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.formulaireStagiaires span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+
+#stagiaire_submit{
+    padding: 10px 20px 10px 20px;
+    border-radius: 20px;
+}
+
+
+
+
+
+/* fin stagiaires */
+
+
+
+/* formateur  */
+
+.formateurElements {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* fin formateur */
+
+
+
+
+/* categories */
+
+
+.categoriesElements {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
+.formulaireCategorie form div{
+display: flex;
+}
+.forrmulaireCours form div{
+display: flex;
+}
+
+
+
+
+
+
+
+
+/* fin categories */
+
+
+
+
+
+
+
+
+
+.detailStagiaire{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
  
 
 }
-.elementsListStagiaire{
-    font-size: 1.5em;
+.informationStagiaire{
+    background-color:rosybrown;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
 
 }
+.sessionPreveusStagaiire{
+    background-color:rosybrown;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+
+}
+

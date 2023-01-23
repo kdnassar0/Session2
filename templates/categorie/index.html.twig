@@ -4,16 +4,33 @@
 
 {% block body %}
 
-
+<div class="categoriesElements">
 <h1>Liste Categorie</h1>
 {% for categorie in categories %}
 
 {{ categorie }}
     
 {% endfor %}
+<div class="formulaireCategorie">
+    {{ form_start(formAddCategorie) }}
+
+        {{ form_row (formAddCategorie.nomCategorie) }} 
+        {{ form_row (formAddCategorie.submit) }} 
+
+    {{ form_end(formAddCategorie) }}
+</div>
+<div class="forrmulaireCours">
+    {{ form_start(formAddCours) }}
+
+    {{ form_row (formAddCours.nomCours) }} 
+    {{ form_row (formAddCours.categorie) }} 
+    {{ form_row (formAddCours.submit) }} 
+
+{{ form_end(formAddCours) }}
 
 
-{{ form (formAddCategorie) }}
-{{ form (formAddCours) }}
 
+</div>
+
+</div>
 {% endblock %}

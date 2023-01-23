@@ -4,22 +4,50 @@
 
 {% block body %}
 
-<main>
+
 <span>Touts les stagiaires </span>
-
-
 <div class="stagiaires">
-{% for stagiaire in stagiaires %}
-    <div class="elements">
-        <div class="elementsListStagiaire">
-            <a href="{{path ('show_stagiaire',{'id':stagiaire.id})}}">{{ stagiaire.nomStagiaire }} </a>
-            {{ stagiaire.prenomStagiaire }}
-        </div>
+<table>
+    <tr>
+        <th colspan="3">Liste Des Stagiaires</th>
+    </tr>
+    <tr>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th></th>
+    </tr>
 
-      <a href=" {{ path ('supprimer_stagiaire',{'id':stagiaire.id}) }}">supprimer</a> 
-    </div>
+
+{% for stagiaire in stagiaires %}
+    
+    <tr>
+        <td>    <a href="{{path ('show_stagiaire',{'id':stagiaire.id})}}">{{ stagiaire.nomStagiaire }} </a></td>
+        <td>  {{ stagiaire.prenomStagiaire }}</td>
+        <td>   <a href=" {{ path ('supprimer_stagiaire',{'id':stagiaire.id}) }}"><i class="fa-regular fa-trash-can"></i></a> </td>
+
+
+    </tr>     
+  
 {% endfor %}
+
+    
+</table>
+<h1>Ajouter un stagiaire</h1>
+
+   {{form_start(formAddStagiaire)}}
+   <div class="formulaireStagiaires" >     
+   {{ form_row(formAddStagiaire.nomStagiaire) }}
+   {{ form_row(formAddStagiaire.prenomStagiaire) }}
+   {{ form_row(formAddStagiaire.adress) }}
+   {{ form_row(formAddStagiaire.dateNaissance) }}
+   {{ form_row(formAddStagiaire.sexe) }}
+   {{ form_row(formAddStagiaire.email) }}
+   <span>{{ form_row(formAddStagiaire.submit) }}</span>
 </div>
-</main>
-<h1><a href=" {{ path ('add_stagiaire') }} ">Ajouter un stagiaire</a></h1>
+   {{ form_end(formAddStagiaire) }}
+
+
+
+
+
 {% endblock %}  

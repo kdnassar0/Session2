@@ -4,25 +4,27 @@
 
 {% block body %}
 
-<h1>Details d'un stagiaire</h1>
 
+<div class="detailStagiaire">
+  <h1>Details d'un stagiaire</h1>
+<div class="informationStagiaire">
 
  nom prenom :{{ stagiaire.nomStagiaire ~" "~ stagiaire.prenomStagiaire }} <br>
  adresse:{{ stagiaire.adress }} <br>
  date Naissance : {{ stagiaire.dateNaissance | date("m/d/Y") }} <br>
  email : {{ stagiaire.email }} <br>
  sexe : {{ stagiaire.sexe }}
-
+</div>
  <h1>sessions prevues : </h1>
-
+<div class="sessionPreveusStagaiire">
 {% for stagiaire in stagiaire.sessions %}
   {{ stagiaire.nomSession }}
   (du {{ stagiaire.dateDebut | date("m/d/Y") }}
  au {{ stagiaire.dateFin | date("m/d/Y") }} )<br>
     
 {% endfor %}
-    
-
+</div>  
+</div>
     
 
 

@@ -6,55 +6,26 @@
 {% block body %}
 
 <div class="toutsDetailsSession">
-<div class="datails">
+
 <div class="detailsSession">
 <h1> {{ session.nomSession }} </h1> <br>
+<h2>
  Nom Formateur :{{ session.reference }} <br>
  Date Debut : {{ session.dateDebut | date("m/d/Y") }} <br>
  Date Fin :{{ session.dateFin | date("m/d/Y") }} <br>
  Numbre de places total :{{ session.nbPlaceTotal }} <br>
  Numbre de places disponible : {{  session.nbPlaceTotal  - session.stagiaires |length  }} <br>
  Numbre de Modules : {{ session.programes |length }}
+
  ({% for programe in session.programes %}
  {{ programe.cours.nomCours }}
+
  {% endfor %}) 
-
-
-</div>
-
-
-  
-
-
-<table>
-   <tr>
-    <th colspan="3">programe</th>
-
-   </tr>
-  <tr>
-   <th>Nom cours</th>
-   <th>Categorie</th>
-   <th>Duree</th>
-  
-
-  </tr>
-
-
- {% for programe in session.programes %}
- <tr>
-    <td>  {{ programe.cours.nomCours }}</td>
-    <td> {{ programe.cours.categorie }}</td>
-    <td>  {{ programe.duree }}</td>
-    <td>   <a href="{{ path ('delete_programe',{'id':programe.id}) }}"><i class="fa-regular fa-trash-can"></i></a><br>
-      {% endfor %}</td>
-
- </tr>
- 
-  
-</table>
+</h2>
 
 </div>
- 
+
+
 
  <div class="listDesStagiaire">
  <table>
@@ -107,39 +78,61 @@
 </table>
  {% endif %}
 
+ </div>
 
-</div>
+ <div class="listProgrames">
+<table>
+  <tr>
+   <th colspan="4">cours programmés</th>
 
-</div>
+  </tr>
+ <tr>
+  <th>Nom cours</th>
+  <th>Categorie</th>
+  <th>Duree</th>
+  <th></th>
+ 
 
+ </tr>
+
+
+{% for programe in session.programes %}
+<tr>
+   <td>  {{ programe.cours.nomCours }}</td>
+   <td> {{ programe.cours.categorie }}</td>
+   <td>  {{ programe.duree }}</td>
+   <td>   <a href="{{ path ('delete_programe',{'id':programe.id}) }}"><i class="fa-regular fa-trash-can"></i></a><br>
+     {% endfor %}</td>
+
+</tr>
+
+ 
+</table>  
+
+
+
+<table>
+
+  <tr>
+    <th class="">Cours nonProgramés</th>
+  </tr>
 
 
 {% for table in tableau %}
-{# {{ dump(table) }} #}
+
+<tr>
+    <td>{{ form(table) }}</td>
+   
 
 
-{{ form(table) }}
-<table>
-  <tr>
-    {# <th>Nom cours</th>
-    <th>Categorie</th>
-    <th>duree</th>
-    <th>ajouter</th> #}
-
-  </tr>
-
-  <tr>
-    {# <td>{{ tableau.nomCours }}</td>
-    <td> {{ tableau.categorie }}</td>
-    <td>{{ tableau.duree }}</td> #}
+</tr>
 
 
-
-  </tr>
-  
-
-  
-</table>
 {% endfor %}
 
+</table>
+
+</div>
+
+</div>
 {% endblock %}
