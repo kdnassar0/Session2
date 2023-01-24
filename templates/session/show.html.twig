@@ -23,6 +23,7 @@
  {% endfor %}) 
 </h2>
 
+
 </div>
 
 
@@ -38,6 +39,7 @@
     
   </tr>
 
+
  {% for stagiaire in stagiaires %}
  <tr>
   <td> <a href=" {{ path ('show_stagiaire',{'id':stagiaire.id}) }} ">{{ stagiaire.nomStagiaire }}</a></td>
@@ -48,12 +50,12 @@
  {% endfor %} 
 
 </table>
-
+{% if session.stagiaires |length == session.nbPlaceTotal   %}
+<p>Session complète, vous ne pouvez plus inscrire de stagiaires</p>
+{% else %}
 <table>
 
- {% if session.stagiaires |length == session.nbPlaceTotal   %}
-  <p>Session complète, vous ne pouvez plus inscrire de stagiaires</p>
- {% else %}
+
  <tr>
   <th colspan="2">liste des stagiaire pas inscrits </th>
 </tr>
@@ -101,7 +103,7 @@
    <td>  {{ programe.cours.nomCours }}</td>
    <td> {{ programe.cours.categorie }}</td>
    <td>  {{ programe.duree }}</td>
-   <td>   <a href="{{ path ('delete_programe',{'id':programe.id}) }}"><i class="fa-regular fa-trash-can"></i></a><br>
+   <td>   <a href="{{ path ('delete_programe',{'id':programe.id}) }}"><i class="fa-regular fa-trash-can"></i></a>
      {% endfor %}</td>
 
 </tr>
@@ -110,27 +112,41 @@
 </table>  
 
 
-
 <table>
-
   <tr>
-    <th class="">Cours nonProgramés</th>
+    <th colspan="3">Cours non Progreames</th>
   </tr>
-
-
-{% for table in tableau %}
-
+  <tr>
+    <th>Nom Cours</th>
+    <th>duree</th>
+    <th>Programmer</th>
+  </tr>
+{% for cours in nonProgramees %}
+<form action="{{ path('add_module_session', {'idSe': session.id, 'idCours': cours.id}) }}" method="post">
 <tr>
-    <td>{{ form(table) }}</td>
-   
-
-
+  <td> {{ cours.nomCours }}</td>
+  <td>
+    <input type="number" name="nbJours" id="nbJours" min ="1" value="1"></td>
+    <td><input type="submit" value="Programmer"></td>
 </tr>
 
-
+  </form>
 {% endfor %}
-
 </table>
+
+
+
+ {# <table>
+  <tr>
+    <th class="">Cours nonProgramés</th>
+  </tr> 
+{% for table in tableau %}
+<tr>
+    <td>{{ form(table) }}</td>
+</tr>
+{% endfor %} 
+
+</table> #}
 
 </div>
 

@@ -4,33 +4,52 @@
 
 {% block body %}
 
-<div class="categoriesElements">
-<h1>Liste Categorie</h1>
+<div class="tout">
+
+<div class="listCategorie">
+    <h1>Liste Categorie</h1>
+<div class="nomCategorie">
 {% for categorie in categories %}
 
-{{ categorie }}
+<span>{{ categorie.nomCategorie }} </span>
+
+{% for cours in categorie.cours %}
+ {{ cours.nomCours }}
     
 {% endfor %}
+
+ 
+{% endfor %}
+</div>
+</div>
+<div class="categoriesElements">
+   
+
+<div class="Formulaires">
+
 <div class="formulaireCategorie">
     {{ form_start(formAddCategorie) }}
 
-        {{ form_row (formAddCategorie.nomCategorie) }} 
-        {{ form_row (formAddCategorie.submit) }} 
+      {{ form_row (formAddCategorie.nomCategorie) }}    
+      {{ form_row (formAddCategorie.submit,{'label' : 'Ajouter'}) }}    
 
     {{ form_end(formAddCategorie) }}
 </div>
+
 <div class="forrmulaireCours">
     {{ form_start(formAddCours) }}
 
     {{ form_row (formAddCours.nomCours) }} 
     {{ form_row (formAddCours.categorie) }} 
-    {{ form_row (formAddCours.submit) }} 
+    {{ form_row (formAddCours.submit,{'label' : 'Ajouter'}) }} 
 
 {{ form_end(formAddCours) }}
 
 
 
 </div>
+</div>
 
+</div>
 </div>
 {% endblock %}

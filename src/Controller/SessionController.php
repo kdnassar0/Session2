@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Cours;
 use App\Entity\Session;
 use App\Entity\Programe;
 use App\Entity\Stagiaire;
@@ -10,13 +11,14 @@ use Doctrine\ORM\EntityManager;
 use App\Form\ProgrameTypePhpType;
 use App\Repository\SessionRepository;
 use App\Repository\ProgrameRepository;
-use App\Repository\StagiaireRepository;
 
+use App\Repository\StagiaireRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class SessionController extends AbstractController
 {
@@ -80,6 +82,31 @@ class SessionController extends AbstractController
      }
       
 
+     /**
+     * @Route("/session/addProgramme/{idSe}/{idCours}", name="add_module_session")
+     * @ParamConverter("session", options={"mapping": {"idSe": "id"}})
+     * @ParamConverter("cours", options={"mapping": {"idCours": "id"}})
+     */
+    public function addProgramme(ManagerRegistry $doctrine, Request $request, Session $session, Cours $cours) {
+
+        $em = $doctrine->getManager();
+        $pr = new Programe();
+        $pr->setSession($session);
+        $pr->setCours($cours);
+
+        $nbJours = $request->request->get('nbJours');
+        
+        $pr->setDuree($nbJours);
+        
+        $em->persist($pr);
+        $em->flush();
+        
+        return $this->redirectToRoute('show_session', ['id' => $session->getId()]);
+    }
+
+
+
+    
 
 
 
@@ -96,52 +123,56 @@ class SessionController extends AbstractController
         $stagiaires =$session->getStagiaires();
 
 
-        //on difinit une variable qui va dans la requete dql que on a fait 
+
+
+
+
+        // on difinit une variable qui va dans la requete dql que on a fait 
         $nonProgramees = $pr->findCoursNonProgrammees($session_id);
        
-        //on passe une table vide
-        $tableau = [] ;
+        // on passe une table vide
+        // $tableau = [] ;
 
-        //on fais une foreach pour pouvoir parcourir dans la requete parce que la requete va envoyer une table des cours 
-        foreach($nonProgramees as $index => $cours){
-            //on veut creer un neuveau programme
-                 $programe = new Programe() ;
-            //pour creer un programme j'ai besion le cours et la session par l'entity programe     
-                 $programe->setCours($cours);
-                 $programe->setSession($session);
+        // on fais une foreach pour pouvoir parcourir dans la requete parce que la requete va envoyer une table des cours 
+        // foreach($nonProgramees as $index => $cours){
+            // on veut creer un neuveau programme
+                //  $programe = new Programe() ;
+            // pour creer un programme j'ai besion le cours et la session par l'entity programe     
+                //  $programe->setCours($cours);
+                //  $programe->setSession($session);
 
-            //on va creer le formulaire 
-                 $index = $this->createForm(ProgrameTypePhpType::class,$programe)  ;
-                 $index->handleRequest($request);
-            //on va creer la vue dans la tableau      
-                 $tableau [] = $index->createView();
+            // on va creer le formulaire 
+                //  $index = $this->createForm(ProgrameTypePhpType::class,$programe)  ;
+                //  $index->handleRequest($request);
+            // on va creer la vue dans la tableau      
+                //  $tableau [] = $index->createView();
 
-                 if($index->isSubmitted() &&  $index->isValid()){
-            //on recupere la data      
-                    $programe =$index->getData();
+                //  if($index->isSubmitted() &&  $index->isValid()){
+            // on recupere la data      
+                    // $programe =$index->getData();
                     
-                    $entityManager =$doctrine->getManager();
-            //on a basoin l'id de la session         
-                    $session=$entityManager->getRepository(Session::class)->find($id);
+                    // $entityManager =$doctrine->getManager();
+            // on a basoin l'id de la session         
+        //             $session=$entityManager->getRepository(Session::class)->find($id);
 
-                    $session->addPrograme($programe);
-                    $entityManager ->persist($programe);
-                    $entityManager->flush();
+        //             $session->addPrograme($programe);
+        //             $entityManager ->persist($programe);
+        //             $entityManager->flush();
 
-        return $this->redirectToRoute('show_session',['id'=>$id]);
+        // return $this->redirectToRoute('show_session',['id'=>$id]);
 
 
-                 }
+        //          }
 
-        }
+        // }
 
        
         return $this->render('session/show.html.twig', [
            'session'=>$session ,
            'stagiaires'=>$stagiaires ,
            'nonInscrits'=>$nonIncrits,
-           'nonProgramees'=>$nonProgramees,
-           'tableau'=>$tableau
+           'nonProgramees'=>$nonProgramees
+        //    'tableau'=>$tableau
          
            
         ]);

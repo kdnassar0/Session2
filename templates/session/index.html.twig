@@ -5,135 +5,143 @@
 {% block body %}
 
 <div class="sessionElements">
-    <div class="formulaireSession">
-     <div>
-     {{ form_start(formAddSession) }}
-     <div class="champFormSession">
-        {{ form_row(formAddSession.nomSession, {'label': 'Nom Session'}) }}
-        {{ form_row(formAddSession.dateDebut)}}
-        {{ form_row(formAddSession.dateFin) }}
-        {{ form_row(formAddSession.nbPlaceTotal) }}
-        {{ form_row(formAddSession.reference) }}
-        {{ form_row(formAddSession.formation) }}
-        {{ form_row(formAddSession.adress) }}
-        {{ form_row(formAddSession.submit) }}
-    </div>   
-     {{ form_end(formAddSession) }}
-    </div> 
+        <div class="formulaireSession">
+        
+        {{ form_start(formAddSession) }}
+        <div class="champFormSession">
+            {{ form_row(formAddSession.nomSession, {'label': 'Nom Session'}) }}
+            {{ form_row(formAddSession.dateDebut)}}
+            {{ form_row(formAddSession.dateFin) }}
+            {{ form_row(formAddSession.nbPlaceTotal) }}
+            {{ form_row(formAddSession.reference) }}
+            {{ form_row(formAddSession.formation) }}
+            {{ form_row(formAddSession.adress) }}
+            {{ form_row(formAddSession.submit) }}
     
-    </div>
-<div class="sessions">
-<table>
-    <tr >
-        <th colspan="8"> Liste des sessions Passees </th>
-    </tr>
-    <tr>
-      
-        <th >Nom Formation</th>
-        <th>Nom Session</th>
-        <th>Date Début</th>
-        <th>Date Fin</th>
-        <th>NB Places</th>
-        <th>Reference</th>
-        <th>Edition</th>
-        <th class="champ">Suppression</th>
-     
-    </tr>
-{% for session in SessionsPassees %}
+        {{ form_end(formAddSession) }}
+        </div> 
+        
+        </div>
+    <div class="sessions">
+    <table>
+        <tr >
+            <th colspan="9"> Liste des sessions Passees </th>
+        </tr>
+        <tr>
 
-    <tr>
-        <td> {{session.formation }} </td>
-        <td class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
-        <td> {{session.dateDebut | date ('Y-m-d') }} </td>
-        <td>  {{ session.dateFin | date ('Y-m-d') }}</td>
-        <td> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
-        <td>{{ session.reference }}</td>
-        <td><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
-        <td> <a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
-     
+           <th>Statut</th>
+            <th >Nom Formation</th>
+            <th>Nom Session</th>
+            <th>Date Début</th>
+            <th>Date Fin</th>
+            <th>NB Places</th>
+            <th>Reference</th>
+            <th>Edition</th>
+            <th class="champ">Suppression</th>
+        
+        </tr>
+    {% for session in SessionsPassees %}
 
-    </tr>
- 
-
-{% endfor %}
-
-</table>
-
-
-
-<table>
-    <tr >
-        <th colspan="8"> Liste des sessions Encours </th>
-    </tr>
-    <tr>
-    <tr>
-        <th class="champFormation">Nom Formation</th>
-        <th>Nom Session</th>
-        <th>Date Début</th>
-        <th>Date Fin</th>
-        <th>NB Places</th>
-        <th>Reference</th>
-        <th>Edition</th>
-        <th class="champ">Suppression</th>
-     
-    </tr>
-{% for session in SessionsEncours %}
-
-    <tr>
-        <td> {{session.formation }} </td>
-        <td class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
-        <td> {{session.dateDebut | date ('Y-m-d') }} </td>
-        <td>  {{ session.dateFin | date ('Y-m-d') }}</td>
-        <td> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
-        <td>{{ session.reference }}</td>
-        <td><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
-        <td> <a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
+        <tr>
+             <td>{% if session.stagiaires | length == session.nbPlaceTotal %}
+                <span><i class="uil uil-check-circle"></i></span>
+                {% else %}   <span><i class="uil uil-check"></i></span>
+                {% endif %}
+               
+               
+            </td>
+                <td> {{session.formation }} </td>
+            <td class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
+            <td> {{session.dateDebut | date ('Y-m-d') }} </td>
+            <td>  {{ session.dateFin | date ('Y-m-d') }}</td>
+            <td> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
+            <td>{{ session.reference }}</td>
+            <td><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
+            <td> <a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
         
 
-    </tr>
- 
+        </tr>
+    
 
-{% endfor %}
+    {% endfor %}
 
-</table>
-
-
-<table>
-    <tr >
-        <th colspan="8"> Liste des sessions à venir </th>
-    </tr>
-    <tr>
-    <tr>
-        <th class="champFormation">Nom Formation</th>
-        <th>Nom Session</th>
-        <th>Date Début</th>
-        <th>Date Fin</th>
-        <th>NB Places</th>
-        <th>Reference</th>
-        <th>Edition</th>
-        <th class="champ">Suppression</th>
-     
-    </tr>
-{% for session in SessionAvenir %}
-
-    <tr>
-        <td> {{session.formation }} </td>
-        <td class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
-        <td> {{session.dateDebut | date ('Y-m-d') }} </td>
-        <td>  {{ session.dateFin | date ('Y-m-d') }}</td>
-        <td> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
-        <td>{{ session.reference }}</td>
-        <td><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
-        <td> <a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
-
-    </tr>
- 
-
-{% endfor %}
-</table>
+    </table>
 
 
-</div>
+
+    <table>
+        <tr >
+            <th colspan="8"> Liste des sessions Encours </th>
+        </tr>
+        <tr>
+        <tr>
+            <th class="champFormation">Nom Formation</th>
+            <th>Nom Session</th>
+            <th>Date Début</th>
+            <th>Date Fin</th>
+            <th>NB Places</th>
+            <th>Reference</th>
+            <th>Edition</th>
+            <th class="champ">Suppression</th>
+        
+        </tr>
+    {% for session in SessionsEncours %}
+
+        <tr>
+            <td> {{session.formation }} </td>
+            <td class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
+            <td> {{session.dateDebut | date ('Y-m-d') }} </td>
+            <td>  {{ session.dateFin | date ('Y-m-d') }}</td>
+            <td> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
+            <td>{{ session.reference }}</td>
+            <td><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
+            <td> <a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
+            
+
+        </tr>
+    
+
+    {% endfor %}
+
+    </table>
+
+
+    <table>
+        <tr >
+            <th colspan="8"> Liste des sessions à venir </th>
+        </tr>
+        <tr>
+        <tr>
+            <th class="champFormation">Nom Formation</th>
+            <th>Nom Session</th>
+            <th>Date Début</th>
+            <th>Date Fin</th>
+            <th>NB Places</th>
+            <th>Reference</th>
+            <th>Edition</th>
+            <th class="champ">Suppression</th>
+        
+        </tr>
+    {% for session in SessionAvenir %}
+
+        <tr>
+            <td> {{session.formation }} </td>
+            <td class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
+            <td> {{session.dateDebut | date ('Y-m-d') }} </td>
+            <td>  {{ session.dateFin | date ('Y-m-d') }}</td>
+            <td> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
+            <td>{{ session.reference }}</td>
+            <td><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
+            <td> <a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
+
+        </tr>
+    
+
+    {% endfor %}
+    </table>
+
+
+    </div>
 
 
 

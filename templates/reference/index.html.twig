@@ -3,32 +3,38 @@
 {% block title %}Hello ReferenceController!{% endblock %}
 
 {% block body %}
-<div class="formateurElements">
-<h1>Liste des formateurs</h1>
 
-{% for reference in references %}
-   {{ reference }}
-{% endfor %}
+ <div class="formateurElements">
+    <h1>Liste des formateurs</h1>
+   {# <div class="listFormateur">
+      {% for reference in references %}
+         <span>  {{ reference }} </span>
+      {% endfor %}
+   </div>  #}
 
-{% for reference in references %}
-   {{reference}}
-   <br>
-   {% for session in reference.sessions %}
-      {{session.nomSession}} <br>
+<table>
+   <tr>
+      <th>Nom Prenom</th>
+      <th>sessions</th>
+   </tr>
+   {% for reference in references %}
+   <tr>
+      <td>{{reference}}</td>
+      <td>   {% for session in reference.sessions %}
+         ({{session.nomSession}})
+      {% endfor %}</td>
+   </tr>
+    
    {% endfor %}
+</table>
 
-   <br><br><br>
-{% endfor %}
+<div class="formateurForm">
+<h1>Ajouter un formateur</h1>
+{{ form_start(formAddReference)}}
+{{form (formAddReference)}}
 
-<h1>session de formateur</h1>
-
-{# {% for session in oneReference %}
-   {{ session.nomSession }}
-   
-{% endfor %}  #}
-
-
-{{form (formAddReference) }}
+{{ form_end(formAddReference) }}
+</div>
 </div>
 {% endblock %}
 

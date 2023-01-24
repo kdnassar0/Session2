@@ -24,12 +24,17 @@ class StagiaireController extends AbstractController
      * 
      * @Route("/stagiaire/", name="app_stagiaire")
      * @Route("/stagiaire/add", name="add_stagiaire")
+     * @Route("/stagiaire/edit/{id}",name="edit_stagiaire")
      * 
      */
 
     public function toutsLesStagiaire(StagiaireRepository $s,ManagerRegistry $doctrine,Stagiaire $stagiaire =null,Request $request)
      
     {
+        if (!$stagiaire){
+            $stagiaire = new Stagiaire() ;
+
+        }
        $stagiaires =$s->findBy([],['nomStagiaire' =>'ASC']);
 
 
@@ -49,7 +54,7 @@ class StagiaireController extends AbstractController
         //insert into (exucute)
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_session') ;
+        return $this->redirectToRoute('app_stagiaire') ;
 
        }
 
