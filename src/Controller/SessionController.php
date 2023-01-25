@@ -23,7 +23,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class SessionController extends AbstractController
 {
     /**
-     * @Route("/home", name="app_session")
+     * @Route("/", name="app_session")
      * @Route("/session/add", name="add_session")
      * @Route("/session/edit/{id}",name="edit_session")
      */

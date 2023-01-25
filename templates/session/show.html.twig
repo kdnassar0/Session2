@@ -7,148 +7,156 @@
 
 <div class="toutsDetailsSession">
 
-<div class="detailsSession">
-<h1> {{ session.nomSession }} </h1> <br>
-<h2>
- Nom Formateur :{{ session.reference }} <br>
- Date Debut : {{ session.dateDebut | date("m/d/Y") }} <br>
- Date Fin :{{ session.dateFin | date("m/d/Y") }} <br>
- Numbre de places total :{{ session.nbPlaceTotal }} <br>
- Numbre de places disponible : {{  session.nbPlaceTotal  - session.stagiaires |length  }} <br>
- Numbre de Modules : {{ session.programes |length }}
+  <div class="detailsSession">
 
- ({% for programe in session.programes %}
- {{ programe.cours.nomCours }}
+    <h1> {{ session.nomSession }} </h1> <br>
+    <h2>
+      Nom Formateur :{{ session.reference }} <br>
+      Date Debut : {{ session.dateDebut | date("m/d/Y") }} <br>
+      Date Fin :{{ session.dateFin | date("m/d/Y") }} <br>
+      Numbre de places total :{{ session.nbPlaceTotal }} <br>
+      Numbre de places disponible : {{ session.nbPlaceTotal - session.stagiaires |length }} <br>
+      Numbre de Modules : {{ session.programes |length }}
 
- {% endfor %}) 
-</h2>
+      ({% for programe in session.programes %}
+      {{ programe.cours.nomCours }}
 
-
-</div>
+      {% endfor %})
+    </h2>
 
 
-
- <div class="listDesStagiaire">
- <table>
-  <tr>
-    <th colspan="2">liste des stagiaire inscrits</th>
-  </tr>
-  <tr>
-    <th>Nom Stagiaire</th>
-    <th>Desinscrire</th>
-    
-  </tr>
-
-
- {% for stagiaire in stagiaires %}
- <tr>
-  <td> <a href=" {{ path ('show_stagiaire',{'id':stagiaire.id}) }} ">{{ stagiaire.nomStagiaire }}</a></td>
-  <td><a href=" {{ path ('delete_stagiaire',{'id':session.id,'idStagiaire':stagiaire.id}) }}"><i class="fa-solid fa-minus"></i></a></td>
-
- 
-</tr>
- {% endfor %} 
-
-</table>
-{% if session.stagiaires |length == session.nbPlaceTotal   %}
-<p>Session complète, vous ne pouvez plus inscrire de stagiaires</p>
-{% else %}
-<table>
-
-
- <tr>
-  <th colspan="2">liste des stagiaire pas inscrits </th>
-</tr>
-<tr>
-  <th>Nom Stagiaire</th>
-  <th>Ajouter</th>
-
-</tr>
+  </div>
 
 
 
+  <div class="listDesStagiaire">
 
-  {% for stagiaire in nonInscrits %}
-    <tr>
-      <td> <a href=" {{ path ('show_stagiaire',{'id':stagiaire.id}) }} ">{{ stagiaire.nomStagiaire }}</a></td>
-      
-      <td><a href=" {{ path ('ajouter_stagiaire',{'id':session.id,'idStagiaire':stagiaire.id}) }}"><i class="fa-solid fa-square-plus"></i></a></td>
-    </tr>
+    <table>
+      <tr>
+        <th colspan="2">liste des stagiaire inscrits</th>
+      </tr>
+      <tr>
+        <th>Nom Stagiaire</th>
+        <th>Desinscrire</th>
+
+      </tr>
+
+
+      {% for stagiaire in stagiaires %}
+      <tr>
+        <td data-label="INSCRIT"> <a href=" {{ path ('show_stagiaire',{'id':stagiaire.id}) }} ">{{ stagiaire.nomStagiaire
+            }} <br> {{ stagiaire.prenomStagiaire }} </a></td>
+        <td><a href=" {{ path ('delete_stagiaire',{'id':session.id,'idStagiaire':stagiaire.id}) }}"><i
+              class="fa-solid fa-minus"></i></a></td>
+
+
+      </tr>
+      {% endfor %}
+
+    </table>
+
+    {% if session.stagiaires |length == session.nbPlaceTotal %}
+    <p>Session complète, vous ne pouvez plus inscrire de stagiaires</p>
+    {% else %}
+    <table>
+
+
+      <tr>
+        <th colspan="2">liste des stagiaire pas inscrits </th>
+      </tr>
+      <tr>
+        <th>Nom Stagiaire</th>
+        <th>Ajouter</th>
+
+      </tr>
+
+
+
+
+      {% for stagiaire in nonInscrits %}
+      <tr>
+        <td data-label="Non INSCRITE"> <a href=" {{ path ('show_stagiaire',{'id':stagiaire.id}) }} ">{{ stagiaire.nomStagiaire }} <br> {{ stagiaire.prenomStagiaire }} </a></td>
+
+        <td><a href=" {{ path ('ajouter_stagiaire',{'id':session.id,'idStagiaire':stagiaire.id}) }}"><i
+              class="fa-solid fa-square-plus"></i></a></td>
+      </tr>
+
+
+      {% endfor %}
+    </table>
+    {% endif %}
+
+  </div>
+
+  <div class="listProgrames">
+    <table>
+      <tr>
+        <th colspan="4">cours programmés</th>
+
+      </tr>
    
-      
-  {% endfor %} 
-</table>
- {% endif %}
-
- </div>
-
- <div class="listProgrames">
-<table>
-  <tr>
-   <th colspan="4">cours programmés</th>
-
-  </tr>
- <tr>
-  <th>Nom cours</th>
-  <th>Categorie</th>
-  <th>Duree</th>
-  <th></th>
- 
-
- </tr>
+      <tr>
+        <th>Nom cours</th>
+        <th>Categorie</th>
+        <th>Duree</th>
+        <th></th>
 
 
-{% for programe in session.programes %}
-<tr>
-   <td>  {{ programe.cours.nomCours }}</td>
-   <td> {{ programe.cours.categorie }}</td>
-   <td>  {{ programe.duree }}</td>
-   <td>   <a href="{{ path ('delete_programe',{'id':programe.id}) }}"><i class="fa-regular fa-trash-can"></i></a>
-     {% endfor %}</td>
-
-</tr>
-
- 
-</table>  
+      </tr>
 
 
-<table>
-  <tr>
-    <th colspan="3">Cours non Progreames</th>
-  </tr>
-  <tr>
-    <th>Nom Cours</th>
-    <th>duree</th>
-    <th>Programmer</th>
-  </tr>
-{% for cours in nonProgramees %}
-<form action="{{ path('add_module_session', {'idSe': session.id, 'idCours': cours.id}) }}" method="post">
-<tr>
-  <td> {{ cours.nomCours }}</td>
-  <td>
-    <input type="number" name="nbJours" id="nbJours" min ="1" value="1"></td>
-    <td><input type="submit" value="Programmer"></td>
-</tr>
+      {% for programe in session.programes %}
+      <tr>
+        <td> {{ programe.cours.nomCours }}</td>
+        <td> {{ programe.cours.categorie }}</td>
+        <td> {{ programe.duree }}</td>
+        <td> <a href="{{ path ('delete_programe',{'id':programe.id}) }}"><i class="fa-regular fa-trash-can"></i></a>
+          {% endfor %}</td>
 
-  </form>
-{% endfor %}
-</table>
+      </tr>
+
+
+    </table>
+
+
+    <table>
+      <tr>
+        <th colspan="3">Cours non Progreames</th>
+      </tr>
+      <tr>
+        <th>Nom Cours</th>
+        <th>duree</th>
+        <th>Programmer</th>
+      </tr>
+      {% for cours in nonProgramees %}
+      <form action="{{ path('add_module_session', {'idSe': session.id, 'idCours': cours.id}) }}" method="post">
+        <tr>
+          <td> {{ cours.nomCours }}</td>
+          <td>
+            <input type="number" name="nbJours" id="nbJours" min="1" value="1">
+          </td>
+          <td><input type="submit" value="            +           "></i></td>
+        </tr>
+
+      </form>
+      {% endfor %}
+    </table>
 
 
 
- {# <table>
-  <tr>
-    <th class="">Cours nonProgramés</th>
-  </tr> 
-{% for table in tableau %}
-<tr>
-    <td>{{ form(table) }}</td>
-</tr>
-{% endfor %} 
+    {# <table>
+      <tr>
+        <th class="">Cours nonProgramés</th>
+      </tr>
+      {% for table in tableau %}
+      <tr>
+        <td>{{ form(table) }}</td>
+      </tr>
+      {% endfor %}
 
-</table> #}
+    </table> #}
 
-</div>
+  </div>
 
 </div>
 {% endblock %}

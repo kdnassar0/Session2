@@ -8,19 +8,24 @@
 
 <div class="listCategorie">
     <h1>Liste Categorie</h1>
-<div class="nomCategorie">
+
+<table>
+    <tr>
+        <th>Nom categorie</th>
+        <th>Cours</th>
+    </tr>
+
 {% for categorie in categories %}
-
-<span>{{ categorie.nomCategorie }} </span>
-
-{% for cours in categorie.cours %}
- {{ cours.nomCours }}
-    
+    <tr>
+        <td><span>{{ categorie.nomCategorie }} </span></td>
+        <td>{% for cours in categorie.cours %}
+            ({{ cours.nomCours }})
+               
+           {% endfor %}</td>
+    </tr>
 {% endfor %}
 
- 
-{% endfor %}
-</div>
+</table>
 </div>
 <div class="categoriesElements">
    

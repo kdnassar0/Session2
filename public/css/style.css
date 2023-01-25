@@ -8,7 +8,7 @@
 
 /* body  */
 body {
-    width: 100% ;
+    width: 100%;
     /* background-color: red; */
 
 }
@@ -31,8 +31,12 @@ nav {
 
 }
 
+.uil-align-center-justify {
+    display: none;
+}
+
 .containerNav {
-    width:35%;
+    width: 35%;
 
 }
 
@@ -131,10 +135,10 @@ input {
 .formulaireSession {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 10px;
-    width:40%;
-    
+
+
 
 
 
@@ -144,9 +148,10 @@ input {
 
 .formulaireSession form {
 
-    width: 100%;
+    width: 70%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    margin: 50px 0px 50px 0px;
 
 
 
@@ -156,8 +161,8 @@ input {
 
 .sessionElements {
     display: flex;
-    align-items: center; 
-    justify-content: flex-end;  
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
     width: 100%;
     gap: 10px;
@@ -206,17 +211,18 @@ table {
     color: white;
 }
 
-.uil-check-circle{
+.uil-check-circle {
     color: red;
 }
-.uil-check{
+
+.uil-check {
     color: green;
 }
 
 
 .champSession {
     background-color: rgba(109, 108, 15, 0.766);
-  
+
 }
 
 tr a {
@@ -294,10 +300,18 @@ main {
     justify-content: center;
     width: 100%;
     flex-direction: column;
-    gap: 20px;
+ gap: 20px;
+   
 
 
 }
+.toutsPageSession{
+    display: flex;
+   flex-direction: column ;
+   gap: 50px;
+   
+}
+
 
 .detailsSession {
     background-color: #011527;
@@ -523,34 +537,12 @@ tr td {
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-    flex-direction: column;
     gap: 20px;
 
 }
 
-.nomCategorie {
-    width: 50%;
 
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-
-}
-
-.nomCategorie span {
-    background-color: black;
-    width: 20%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    color: white;
-}
 
 
 .forrmulaireCours label {
@@ -617,3 +609,161 @@ tr td {
 }
 
 
+
+
+
+
+/* Responsive */
+
+
+@media screen and (max-width: 390px) {
+
+
+    .sessionElements {
+        /* background-color: #011527; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-width: 100vw;
+        background-color: #2368a3;
+    }
+
+    body {
+        max-width: 100%;
+        background-color: #2368a3;
+    }
+
+    .uil-align-center-justify {
+        display: block;
+        margin-left: 22%;
+    }
+
+    .sessions {
+        width: 100%;
+        min-height: 100vh;
+        border: none;
+
+
+    }
+
+    nav .navOpenBtn {
+        color: red;
+        left: 210px;
+        position: absolute;
+        top: 50px;
+    }
+
+    nav.openNav {
+        left: 0px;
+
+    }
+
+    nav.openNav .navOpenBtn {
+        display: none;
+    }
+
+    .navClose {
+        top: 10px;
+        position: absolute;
+        left: 160px;
+        color: red;
+        font-size: 20px;
+    }
+
+    nav {
+        width: 50%;
+        left: -200px;
+
+        transition: all 0.4s ease;
+
+    }
+
+    .nav-links {
+        left: 0;
+    }
+
+
+    .formulaireSession {
+        width: 100%;
+        /* background-color: red; */
+
+
+
+    }
+
+    .formulaireSession form {
+
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+
+        
+    }
+    
+    .champFormSession {
+        width: 70%;
+        
+    }
+    
+    
+    
+        /* session show */
+    
+        .listDesStagiaire {
+            background-color: #011527;
+            display: flex;
+           
+            width: 100%;
+           
+        }
+
+        .listProgrames{
+            background-color: #011527;
+            display: flex;
+           
+            width: 100%;
+
+        }
+
+        
+    
+    
+    table {
+        max-height: 100%;
+    }
+    
+    
+    table th {
+        display: none;
+    }
+    
+    table tr {
+        display: block;
+        margin-bottom: 40px;
+    }
+
+    table td {
+        display: block;
+        text-align: right;
+    }
+    
+    table td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+    }
+    
+
+    
+    
+    
+
+
+
+
+
+
+
+}

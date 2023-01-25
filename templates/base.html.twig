@@ -9,29 +9,36 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link rel="stylesheet" href="{{ asset ('css/style.css') }}">
-     
+    
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+        
+<script src="{{ asset('js/script.js')  }}" defer></script>
+{% endblock %}
+
+
     </head>
 
 
 
-        
+
+    
         <div class="containerNav">
             
-            <nav>
+            <nav class="nav">
+
+               <i class="uil uil-bars navOpenBtn"></i>
               
                 <img src="https://www.pngkey.com/png/detail/335-3355322_online-application-icon.png" alt="">
-                <ul>
+                <ul class="nav-links">
                     {# {% if app.user %} #}
                    
                         {# <li><a href="#"></a>{{app.user.pseudo }}</li> #}
 
+                        <i class="uil uil-times navClose"></i>
                         
                         <li><a href=" {{ path ('app_session') }} ">sessions</a></li>
                         <li><a href=" {{ path ('app_stagiaire') }} ">stagiaires</a></li>
@@ -56,4 +63,7 @@
 
 {% block body %}{% endblock %}
 </body> 
+
+
+
 </html>

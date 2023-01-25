@@ -3,25 +3,26 @@
 {% block title %}Hello SessionController!{% endblock %}
 
 {% block body %}
+<div class="toutsPageSession">
+<div class="formulaireSession">
+        
+    {{ form_start(formAddSession) }}
+    <div class="champFormSession">
+        {{ form_row(formAddSession.nomSession, {'label': 'Nom Session'}) }}
+        {{ form_row(formAddSession.dateDebut)}}
+        {{ form_row(formAddSession.dateFin) }}
+        {{ form_row(formAddSession.nbPlaceTotal) }}
+        {{ form_row(formAddSession.reference) }}
+        {{ form_row(formAddSession.formation) }}
+        {{ form_row(formAddSession.adress) }}
+        {{ form_row(formAddSession.submit) }}
 
-<div class="sessionElements">
-        <div class="formulaireSession">
-        
-        {{ form_start(formAddSession) }}
-        <div class="champFormSession">
-            {{ form_row(formAddSession.nomSession, {'label': 'Nom Session'}) }}
-            {{ form_row(formAddSession.dateDebut)}}
-            {{ form_row(formAddSession.dateFin) }}
-            {{ form_row(formAddSession.nbPlaceTotal) }}
-            {{ form_row(formAddSession.reference) }}
-            {{ form_row(formAddSession.formation) }}
-            {{ form_row(formAddSession.adress) }}
-            {{ form_row(formAddSession.submit) }}
+    {{ form_end(formAddSession) }}
+    </div> 
     
-        {{ form_end(formAddSession) }}
-        </div> 
-        
-        </div>
+    </div>
+<div class="sessionElements">
+  
     <div class="sessions">
     <table>
         <tr >
@@ -35,7 +36,7 @@
             <th>Date Début</th>
             <th>Date Fin</th>
             <th>NB Places</th>
-            <th>Reference</th>
+            <th>Referent</th>
             <th>Edition</th>
             <th class="champ">Suppression</th>
         
@@ -43,19 +44,19 @@
     {% for session in SessionsPassees %}
 
         <tr>
-             <td>{% if session.stagiaires | length == session.nbPlaceTotal %}
+             <td data-label ='statut'>{% if session.stagiaires | length == session.nbPlaceTotal %}
                 <span><i class="uil uil-check-circle"></i></span>
                 {% else %}   <span><i class="uil uil-check"></i></span>
                 {% endif %}
                
                
             </td>
-                <td> {{session.formation }} </td>
-            <td class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
-            <td> {{session.dateDebut | date ('Y-m-d') }} </td>
-            <td>  {{ session.dateFin | date ('Y-m-d') }}</td>
-            <td> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
-            <td>{{ session.reference }}</td>
+                <td data-label ='Formation'> {{session.formation }} </td>
+            <td data-label ='Session' class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
+            <td data-label ='Date Debut'> {{session.dateDebut | date ('Y-m-d') }} </td>
+            <td data-label ='Date Fin'>{{ session.dateFin | date ('Y-m-d') }}</td>
+            <td data-label ='Nb des Places' > {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
+            <td data-label ='Referent'>{{ session.reference }}</td>
             <td><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
             <td> <a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
         
@@ -71,16 +72,17 @@
 
     <table>
         <tr >
-            <th colspan="8"> Liste des sessions Encours </th>
+            <th colspan="9  "> Liste des sessions Encours </th>
         </tr>
         <tr>
         <tr>
+            <th>Statut</th>
             <th class="champFormation">Nom Formation</th>
             <th>Nom Session</th>
             <th>Date Début</th>
             <th>Date Fin</th>
             <th>NB Places</th>
-            <th>Reference</th>
+            <th>Referent</th>
             <th>Edition</th>
             <th class="champ">Suppression</th>
         
@@ -88,14 +90,19 @@
     {% for session in SessionsEncours %}
 
         <tr>
-            <td> {{session.formation }} </td>
-            <td class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
-            <td> {{session.dateDebut | date ('Y-m-d') }} </td>
-            <td>  {{ session.dateFin | date ('Y-m-d') }}</td>
-            <td> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
-            <td>{{ session.reference }}</td>
+            <td data-label ='statut'>{% if session.stagiaires | length == session.nbPlaceTotal %}
+            <span><i class="uil uil-check-circle"></i></span>
+                {% else %}   <span><i class="uil uil-check"></i></span>
+                {% endif %}
+
+            <td data-label ='Formation'> {{session.formation }} </td>
+            <td data-label ='Session' class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
+            <td data-label ='Date Debut'> {{session.dateDebut | date ('Y-m-d') }} </td>
+            <td data-label ='Date Fin'>  {{ session.dateFin | date ('Y-m-d') }}</td>
+            <td data-label ='Nb des Places'> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
+            <td data-label ='Referent'>{{ session.reference }}</td>
             <td><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
-            <td> <a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
+            <td><a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
             
 
         </tr>
@@ -108,16 +115,17 @@
 
     <table>
         <tr >
-            <th colspan="8"> Liste des sessions à venir </th>
+            <th colspan="9"> Liste des sessions à venir </th>
         </tr>
         <tr>
         <tr>
+            <th>Statut</th>
             <th class="champFormation">Nom Formation</th>
             <th>Nom Session</th>
             <th>Date Début</th>
             <th>Date Fin</th>
             <th>NB Places</th>
-            <th>Reference</th>
+            <th>Referent</th>
             <th>Edition</th>
             <th class="champ">Suppression</th>
         
@@ -125,12 +133,18 @@
     {% for session in SessionAvenir %}
 
         <tr>
-            <td> {{session.formation }} </td>
-            <td class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
-            <td> {{session.dateDebut | date ('Y-m-d') }} </td>
-            <td>  {{ session.dateFin | date ('Y-m-d') }}</td>
-            <td> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
-            <td>{{ session.reference }}</td>
+            <td data-label ='statut'>{% if session.stagiaires | length == session.nbPlaceTotal %}
+                <span><i class="uil uil-check-circle"></i></span>
+                {% else %}   <span><i class="uil uil-check"></i></span>
+                {% endif %}
+
+
+            <td data-label ='Formation'> {{session.formation }} </td>
+            <td data-label ='Session' class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
+            <td data-label ='Date debut'> {{session.dateDebut | date ('Y-m-d') }} </td>
+            <td data-label ='Date Fin'>  {{ session.dateFin | date ('Y-m-d') }}</td>
+            <td data-label ='Nb des Places'> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
+            <td data-label ='Referent'>{{ session.reference }}</td>
             <td><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
             <td> <a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
 
@@ -149,6 +163,6 @@
 
 </div>
 
-
+</div>
 {# <h1><a href=" {{ path ('add_programe') }} ">Ajouter un programe</a></h1> #}
 {% endblock %}
