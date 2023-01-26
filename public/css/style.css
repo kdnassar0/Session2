@@ -28,6 +28,7 @@ nav {
     width: 15%;
     background-color: #011527;
     position: fixed;
+    min-width: 50px;
 
 }
 
@@ -67,7 +68,7 @@ li {
 }
 
 li a {
-    font-size: 20px;
+    font-size: 1.2rem;
     text-decoration: none;
     color: white;
 }
@@ -485,6 +486,8 @@ tr td {
     gap: 20px;
     flex-direction: column;
     background-color: aqua;
+
+  
 }
 
 .categoriesElements {
@@ -494,6 +497,7 @@ tr td {
     flex-direction: column;
     background-color: black;
     padding: 20px;
+  
 
 }
 
@@ -608,6 +612,10 @@ tr td {
 
 }
 
+.responsive{
+    display: none;
+}
+
 
 
 
@@ -616,8 +624,42 @@ tr td {
 /* Responsive */
 
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 413px) {
 
+    table {
+        max-height: 100%;
+    }
+
+    table .iconEditRemove{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+    }
+    
+    
+    table th {
+        display: none;
+    }
+    
+    table tr {
+        display:block;
+        margin-bottom: 40px;
+    }
+
+    table td {
+        display: block;
+        text-align: right;
+    }
+    
+    table td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+    }
+    
+
+    
+    
 
     .sessionElements {
         /* background-color: #011527; */
@@ -711,27 +753,309 @@ tr td {
     
         /* session show */
     
-        .listDesStagiaire {
-            background-color: #011527;
-            display: flex;
+         .listDesStagiaire {
            
+            display: flex;
             width: 100%;
            
         }
 
         .listProgrames{
-            background-color: #011527;
-            display: flex;
            
+            display: flex;
             width: 100%;
+            flex-direction: column;
+            gap: 10px;
 
-        }
-
-        
+        } 
+      
     
+        
+                
+
+
+
+
+       /* ----------tableau  show session --------------------  */
+    
+    
+
+ .listDesStagiaire {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0px 20px 0px;
+    }
+
+.listestagiairesInscrits   {
+    width: 100%;
+} 
+    
+    .listestagiairesInscrits tr {
+        margin-bottom: 0 ;
+        display: flex;
+    }
+    
+    .listestagiairesInscrits th {
+        display :flex ;   
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .listestagiairesInscrits td {
+        display :flex ; 
+        width: 100%;  
+        justify-content: center;
+    }
+
+    .listestagiairesNonInscrits   {
+        width: 100%;
+    } 
+    
+    
+    .listestagiairesNonInscrits tr {
+        margin-bottom: 0 ;
+        display: flex;
+    }
+    
+    .listestagiairesNonInscrits th {
+        display :flex ;   
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .listestagiairesNonInscrits td {
+        display :flex ; 
+        width: 100%;  
+        justify-content: center;
+    }
+
+
+    .listeCoursprogrammees   {
+        width: 100%;
+    } 
+    .listeCoursprogrammees tr {
+        margin-bottom: 0 ;
+        display: flex;
+    }
+    
+    .listeCoursprogrammees th {
+        display :flex ;   
+        width: 100%;
+        justify-content: center;
+       align-items: center;
+    }
+    
+    .listeCoursprogrammees td {
+        display :flex ; 
+        width: 100%;  
+        justify-content: center;
+        font-size: 10px;
+        text-align: center;
+    }
+
+
+
+
+    .listeCoursNonprogrammees   {
+        width: 100%;
+    } 
+    .listeCoursNonprogrammees tr {
+        margin-bottom: 0 ;
+        display: flex;
+        width: 100%;
+      
+    }
+    
+    .listeCoursNonprogrammees th {
+        display :flex ;   
+        width: 100%;
+        justify-content: center;
+      
+    }
+    
+    .listeCoursNonprogrammees td {
+        display :flex ; 
+        width: 100%;  
+        justify-content: center;
+        font-size: 10px;
+    }
+   
+
+
+    /* --------------------------------------- */
+    
+
+    /* categorie */
+
+
+    .tout {
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+      
+    width: 100%;
+      
+    }
+
+    .listCategorie{
+        width: 100%;
+    }
+    .listCategorie table   {
+        width: 100%;
+    } 
+    .listCategorie table tr {
+        margin-bottom: 0 ;
+        display: flex;
+    }
+    
+    .listCategorie table th {
+        display :flex ;   
+        width: 100%;
+        justify-content: center;
+      
+    }
+    
+    .listCategorie table td {
+        display :flex ; 
+        width: 100%;  
+        justify-content: center;
+        max-width: 50%;
+        text-align: center;
+    }
+    .Formulaires{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .responsive{
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: black;
+    }
+
+    .listCategorie{
+        display: flex;
+        flex-direction: column;
+    
+    }
+
+
+    /* ------------------------------- */
+
+
+
+
+    /* stagiaires */
+
+
+
+
+.stagiaires table   {
+    width: 100%;
+} 
+.stagiaires table tr {
+    margin-bottom: 0 ;
+    display: flex;
+}
+
+.stagiaires table th {
+    display :flex ;   
+    width: 100%;
+    justify-content: center;
+  
+}
+
+.stagiaires table td {
+    display :flex ; 
+    width: 100%;  
+    justify-content: center;
+    max-width: 50%;
+    text-align: center;
+}
+
+
+
+    /* ---------------------------------- */
+
+    /* formateurs */
+
+
+
+
+.formateurElements table   {
+    width: 100%;
+} 
+.formateurElements table tr {
+    margin-bottom: 0 ;
+    display: flex;
+}
+
+.formateurElements table th {
+    display :flex ;   
+    width: 100%;
+    justify-content: center;
+  
+}
+
+.formateurElements table td {
+    display :flex ; 
+    width: 100%;  
+    justify-content: center;
+    max-width: 50%;
+    text-align: center;
+}
+
+
+
+    /* ---------------------------------- */
+
+
+
+}
+
+
+
+@media screen and (max-width: 1490px) {
+
+    .toutsPageSession {
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+    }
+
+}
+
+@media screen and (max-width: 1425px) {
+
+    .toutsPageSession {
+        display: flex;
+        flex-direction: column;
+        gap: 150px;
+    }
+
+}
+@media screen and (max-width: 500px) {
+
+    nav {
+        width: 40%;
+        left: -200px;
+
+        transition: all 0.4s ease;
+
+    }
     
     table {
         max-height: 100%;
+    }
+
+    table .iconEditRemove{
+       display: flex;
+       justify-content: center;
+       align-items: center;
     }
     
     
@@ -740,7 +1064,7 @@ tr td {
     }
     
     table tr {
-        display: block;
+        display:block;
         margin-bottom: 40px;
     }
 
@@ -758,12 +1082,389 @@ tr td {
 
     
     
+
+    .sessionElements {
+        /* background-color: #011527; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-width: 100vw;
+        background-color: #2368a3;
+    }
+
+    body {
+        max-width: 100%;
+        background-color: #2368a3;
+    }
+
+    .uil-align-center-justify {
+        display: block;
+        margin-left: 22%;
+    }
+
+    .sessions {
+        width: 100%;
+        min-height: 100vh;
+        border: none;
+
+
+    }
+
+    nav .navOpenBtn {
+        color: red;
+        left: 210px;
+        position: absolute;
+        top: 50px;
+    }
+
+    nav.openNav {
+        left: 0px;
+
+    }
+
+    nav.openNav .navOpenBtn {
+        display: none;
+    }
+
+    .navClose {
+        top: 10px;
+        position: absolute;
+        left: 160px;
+        color: red;
+        font-size: 20px;
+    }
+
+
+    .nav-links {
+        left: 0;
+    }
+
+
+    .formulaireSession {
+        width: 100%;
+        /* background-color: red; */
+
+
+
+    }
+
+    .formulaireSession form {
+
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+
+        
+    }
+    
+    .champFormSession {
+        width: 70%;
+        
+    }
+    
+    
+    
+        /* session show */
+    
+         .listDesStagiaire {
+           
+            display: flex;
+            width: 100%;
+           
+        }
+
+        .listProgrames{
+           
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            gap: 10px;
+
+        } 
+      
+    
+        
+                
+
+
+
+
+       /* ----------tableau  show session --------------------  */
+    
     
 
+ .listDesStagiaire {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0px 20px 0px;
+    }
+
+.listestagiairesInscrits   {
+    width: 100%;
+} 
+    
+    .listestagiairesInscrits tr {
+        margin-bottom: 0 ;
+        display: flex;
+    }
+    
+    .listestagiairesInscrits th {
+        display :flex ;   
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .listestagiairesInscrits td {
+        display :flex ; 
+        width: 100%;  
+        justify-content: center;
+    }
+
+    .listestagiairesNonInscrits   {
+        width: 100%;
+    } 
+    
+    
+    .listestagiairesNonInscrits tr {
+        margin-bottom: 0 ;
+        display: flex;
+    }
+    
+    .listestagiairesNonInscrits th {
+        display :flex ;   
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .listestagiairesNonInscrits td {
+        display :flex ; 
+        width: 100%;  
+        justify-content: center;
+    }
+
+
+    .listeCoursprogrammees   {
+        width: 100%;
+    } 
+    .listeCoursprogrammees tr {
+        margin-bottom: 0 ;
+        display: flex;
+    }
+    
+    .listeCoursprogrammees th {
+        display :flex ;   
+        width: 100%;
+        justify-content: center;
+       align-items: center;
+    }
+    
+    .listeCoursprogrammees td {
+        display :flex ; 
+        width: 100%;  
+        justify-content: center;
+        font-size: 10px;
+        text-align: center;
+    }
+
+
+
+
+    .listeCoursNonprogrammees   {
+        width: 100%;
+    } 
+    .listeCoursNonprogrammees tr {
+        margin-bottom: 0 ;
+        display: flex;
+        width: 100%;
+      
+    }
+    
+    .listeCoursNonprogrammees th {
+        display :flex ;   
+        width: 100%;
+        justify-content: center;
+      
+    }
+    
+    .listeCoursNonprogrammees td {
+        display :flex ; 
+        width: 100%;  
+        justify-content: center;
+        font-size: 10px;
+    }
+   
+
+
+    /* --------------------------------------- */
+    
+
+    /* categorie */
+
+
+    .tout {
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+      
+    width: 100%;
+      
+    }
+
+    .listCategorie{
+        width: 100%;
+    }
+    .listCategorie table   {
+        width: 100%;
+    } 
+    .listCategorie table tr {
+        margin-bottom: 0 ;
+        display: flex;
+    }
+    
+    .listCategorie table th {
+        display :flex ;   
+        width: 100%;
+        justify-content: center;
+      
+    }
+    
+    .listCategorie table td {
+        display :flex ; 
+        width: 100%;  
+        justify-content: center;
+        max-width: 50%;
+        text-align: center;
+    }
+    .Formulaires{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .responsive{
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: black;
+    }
+
+    .listCategorie{
+        display: flex;
+        flex-direction: column;
+    
+    }
+
+
+    /* ------------------------------- */
+
+
+
+
+    /* stagiaires */
+
+
+
+
+.stagiaires table   {
+    width: 100%;
+} 
+.stagiaires table tr {
+    margin-bottom: 0 ;
+    display: flex;
+}
+
+.stagiaires table th {
+    display :flex ;   
+    width: 100%;
+    justify-content: center;
+  
+}
+
+.stagiaires table td {
+    display :flex ; 
+    width: 100%;  
+    justify-content: center;
+    max-width: 50%;
+    text-align: center;
+}
+
+
+
+    /* ---------------------------------- */
+
+    /* formateurs */
+
+
+
+
+.formateurElements table   {
+    width: 100%;
+} 
+.formateurElements table tr {
+    margin-bottom: 0 ;
+    display: flex;
+}
+
+.formateurElements table th {
+    display :flex ;   
+    width: 100%;
+    justify-content: center;
+  
+}
+
+.formateurElements table td {
+    display :flex ; 
+    width: 100%;  
+    justify-content: center;
+    max-width: 50%;
+    text-align: center;
+}
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+}
+@media screen and (max-width: 1350px) {
+
+
+    .sessions {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+        padding: 30px;
+        border: 0px solid black;
+        border-radius: 10px;
+    }
+    .toutsPageSession {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+  #session_formation{
+    max-width: 100%;
+  }  
+  #session_reference{
+    max-width: 100%;
+  }  
 
 }

@@ -51,14 +51,15 @@
                
                
             </td>
-                <td data-label ='Formation'> {{session.formation }} </td>
-            <td data-label ='Session' class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
-            <td data-label ='Date Debut'> {{session.dateDebut | date ('Y-m-d') }} </td>
-            <td data-label ='Date Fin'>{{ session.dateFin | date ('Y-m-d') }}</td>
-            <td data-label ='Nb des Places' > {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
-            <td data-label ='Referent'>{{ session.reference }}</td>
-            <td><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
-            <td> <a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
+                <td data-label ='Formation :'> {{session.formation }} </td>
+            <td data-label ='Session :' class="champSession "><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
+            <td data-label ='Date Debut :'> {{session.dateDebut | date ('Y-m-d') }} </td>
+            <td data-label ='Date Fin :'>{{ session.dateFin | date ('Y-m-d') }}</td>
+            <td data-label ='Nb des Places :' > {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
+            <td data-label ='Referent :'>{{ session.reference }}</td>
+          
+            <td class="iconEditRemove"><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
+            <td class="iconEditRemove"> <a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
         
 
         </tr>
@@ -95,14 +96,14 @@
                 {% else %}   <span><i class="uil uil-check"></i></span>
                 {% endif %}
 
-            <td data-label ='Formation'> {{session.formation }} </td>
-            <td data-label ='Session' class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
-            <td data-label ='Date Debut'> {{session.dateDebut | date ('Y-m-d') }} </td>
-            <td data-label ='Date Fin'>  {{ session.dateFin | date ('Y-m-d') }}</td>
-            <td data-label ='Nb des Places'> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
-            <td data-label ='Referent'>{{ session.reference }}</td>
-            <td><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
-            <td><a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
+            <td data-label ='Formation :'> {{session.formation }} </td>
+            <td data-label ='Session :' class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
+            <td data-label ='Date Debut :'> {{session.dateDebut | date ('Y-m-d') }} </td>
+            <td data-label ='Date Fin :'>  {{ session.dateFin | date ('Y-m-d') }}</td>
+            <td data-label ='Nb des Places :'> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
+            <td data-label ='Referent :'>{{ session.reference }}</td>
+            <td class="iconEditRemove"><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
+            <td class="iconEditRemove"><a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
             
 
         </tr>
@@ -139,14 +140,14 @@
                 {% endif %}
 
 
-            <td data-label ='Formation'> {{session.formation }} </td>
-            <td data-label ='Session' class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
-            <td data-label ='Date debut'> {{session.dateDebut | date ('Y-m-d') }} </td>
-            <td data-label ='Date Fin'>  {{ session.dateFin | date ('Y-m-d') }}</td>
-            <td data-label ='Nb des Places'> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
-            <td data-label ='Referent'>{{ session.reference }}</td>
-            <td><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
-            <td> <a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
+            <td data-label ='Formation :'> {{session.formation }} </td>
+            <td data-label ='Session :' class="champSession"><a href="{{ path ('show_session',{'id':session.id})}}"> {{ session.nomSession}} </a>  </td>
+            <td data-label ='Date debut :'> {{session.dateDebut | date ('Y-m-d') }} </td>
+            <td data-label ='Date Fin :'>  {{ session.dateFin | date ('Y-m-d') }}</td>
+            <td data-label ='Nb des Places :'> {{ session.stagiaires |length  }}/{{ session.nbPlaceTotal }} </td>
+            <td data-label ='Referent :'>{{ session.reference }}</td>
+            <td class="iconEditRemove"><a href=" {{ path ('edit_session',{'id':session.id})  }}"><i class="fa-regular fa-pen-to-square"></i></a> </td>
+            <td class="iconEditRemove"> <a href="{{ path ('delete_session',{'id':session.id}) }}"><i class="fa-regular fa-trash-can"></i></a></td>
 
         </tr>
     

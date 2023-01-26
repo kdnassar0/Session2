@@ -31,26 +31,25 @@
 
   <div class="listDesStagiaire">
 
-    <table>
+    <table class="listestagiairesInscrits">
       <tr>
         <th colspan="2">liste des stagiaire inscrits</th>
       </tr>
       <tr>
         <th>Nom Stagiaire</th>
         <th>Desinscrire</th>
-
       </tr>
 
 
       {% for stagiaire in stagiaires %}
-      <tr>
-        <td data-label="INSCRIT"> <a href=" {{ path ('show_stagiaire',{'id':stagiaire.id}) }} ">{{ stagiaire.nomStagiaire
-            }} <br> {{ stagiaire.prenomStagiaire }} </a></td>
-        <td><a href=" {{ path ('delete_stagiaire',{'id':session.id,'idStagiaire':stagiaire.id}) }}"><i
-              class="fa-solid fa-minus"></i></a></td>
+        <tr>
+          <td> <a href=" {{ path ('show_stagiaire',{'id':stagiaire.id}) }} ">{{ stagiaire.nomStagiaire
+              }}  {{ stagiaire.prenomStagiaire }} </a></td>
+          <td><a href=" {{ path ('delete_stagiaire',{'id':session.id,'idStagiaire':stagiaire.id}) }}"><i
+                class="fa-solid fa-minus"></i></a></td>
 
 
-      </tr>
+        </tr>
       {% endfor %}
 
     </table>
@@ -58,7 +57,7 @@
     {% if session.stagiaires |length == session.nbPlaceTotal %}
     <p>Session complète, vous ne pouvez plus inscrire de stagiaires</p>
     {% else %}
-    <table>
+    <table class="listestagiairesNonInscrits" >
 
 
       <tr>
@@ -75,7 +74,7 @@
 
       {% for stagiaire in nonInscrits %}
       <tr>
-        <td data-label="Non INSCRITE"> <a href=" {{ path ('show_stagiaire',{'id':stagiaire.id}) }} ">{{ stagiaire.nomStagiaire }} <br> {{ stagiaire.prenomStagiaire }} </a></td>
+        <td> <a href=" {{ path ('show_stagiaire',{'id':stagiaire.id}) }} ">{{ stagiaire.nomStagiaire }}  {{ stagiaire.prenomStagiaire }} </a></td>
 
         <td><a href=" {{ path ('ajouter_stagiaire',{'id':session.id,'idStagiaire':stagiaire.id}) }}"><i
               class="fa-solid fa-square-plus"></i></a></td>
@@ -89,7 +88,7 @@
   </div>
 
   <div class="listProgrames">
-    <table>
+    <table class="listeCoursprogrammees" >
       <tr>
         <th colspan="4">cours programmés</th>
 
@@ -119,7 +118,7 @@
     </table>
 
 
-    <table>
+    <table class="listeCoursNonprogrammees" >
       <tr>
         <th colspan="3">Cours non Progreames</th>
       </tr>
