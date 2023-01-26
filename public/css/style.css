@@ -24,11 +24,12 @@ nav {
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100%;
     width: 15%;
     background-color: #011527;
     position: fixed;
     min-width: 50px;
+
 
 }
 
@@ -92,7 +93,7 @@ ul :hover {
     flex-direction: column;
     background-color: #011527;
     padding: 20px;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     width: 35%;
 
 
@@ -138,6 +139,7 @@ input {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    width: 100vw;
 
 
 
@@ -485,7 +487,7 @@ tr td {
     display: flex;
     gap: 20px;
     flex-direction: column;
-    background-color: aqua;
+    /* background-color: aqua; */
 
   
 }
@@ -495,7 +497,7 @@ tr td {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: black;
+    /* background-color: black; */
     padding: 20px;
   
 
@@ -613,6 +615,10 @@ tr td {
 }
 
 .responsive{
+    display: none;
+}
+
+.accuille{
     display: none;
 }
 
@@ -1019,7 +1025,7 @@ tr td {
 
 
 
-@media screen and (max-width: 1490px) {
+@media screen and (min-width: 1490px) {
 
     .toutsPageSession {
         display: flex;
@@ -1029,7 +1035,7 @@ tr td {
 
 }
 
-@media screen and (max-width: 1425px) {
+@media screen and (min-width: 1425px) {
 
     .toutsPageSession {
         display: flex;
@@ -1043,11 +1049,20 @@ tr td {
     nav {
         width: 40%;
         left: -200px;
-
+background-color: rgba(0, 0, 0, 0.668);
         transition: all 0.4s ease;
 
     }
     
+    .accuille{
+        display: block;
+        text-align: center;
+        padding: 50px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+        font-size: 50px;
+
+
+    }
     table {
         max-height: 100%;
     }
@@ -1090,12 +1105,13 @@ tr td {
         align-items: center;
         flex-direction: column;
         min-width: 100vw;
-        background-color: #2368a3;
+        /* background-color: #2368a3; */
     }
 
     body {
         max-width: 100%;
-        background-color: #2368a3;
+        /* background-color: #2368a3; */
+  
     }
 
     .uil-align-center-justify {
@@ -1441,9 +1457,16 @@ tr td {
 
 
 }
-@media screen and (max-width: 1350px) {
+@media screen and (min-width: 500px) and (max-width:1350px)
+ {
+    .toutsPageSession {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 25vw;
+        align-items: center;
 
-
+    }
     .sessions {
         display: flex;
         align-items: flex-start;
@@ -1454,17 +1477,51 @@ tr td {
         border: 0px solid black;
         border-radius: 10px;
     }
-    .toutsPageSession {
+   
+    .formulaireSession form {
+        width: 100%;
         display: flex;
-        flex-direction: column;
-        gap: 10px;
+        justify-content: center;
+        margin: 50px 0px 200px 0px;
     }
-
   #session_formation{
     max-width: 100%;
   }  
   #session_reference{
     max-width: 100%;
   }  
+  .stagiaires {
+    padding-left: 17vw;
+}
+.tout {
+
+    padding-left: 17vw;
+}
+.formateurElements {
+    padding-left: 17vw;
+}
+.detailStagiaire {
+    padding-left: 17vw;
+}
+.detailsSession {
+  
+    border-radius: 0px;
+    padding-left: 15vw;
+}
+
+
+.listDesStagiaire {
+    padding-left: 5vw;
+    width: 70%;
 
 }
+
+
+
+
+
+}
+
+
+
+
