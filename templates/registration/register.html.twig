@@ -1,13 +1,17 @@
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+<link rel="stylesheet" href="{{ asset ('css/style.css') }}">
 
-{% block title %}Register{% endblock %}
+
+
 
 {% block body %}
+
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
 
+<div class="formulaireRegister">
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.pseudo) }}
@@ -18,4 +22,8 @@
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
+
+</div>
+
 {% endblock %}
+

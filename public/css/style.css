@@ -9,11 +9,60 @@
 /* body  */
 body {
     width: 100%;
-    /* background-color: red; */
-
+    
+ 
 }
 
 /* fin body  */
+
+/* ---------------formulaire login--------------- */
+
+#formulaireLogIn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   margin-top: 15%;
+}
+
+#formulaireLogIn form {
+    
+display: flex;
+background-color: rgb(194, 187, 187) ;
+box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+align-items: center;
+justify-content: center;
+flex-direction: column  ;
+width: 15%;
+border: 1px solid;
+gap: 10px;
+padding: 2px;
+    
+}
+.formulaireRegister form {
+    
+display: flex;
+background-color: rgb(194, 187, 187) ;
+box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+align-items: center;
+justify-content: center;
+flex-direction: column  ;
+width: 15%;
+border: 1px solid;
+gap: 10px;
+padding: 20px;  
+    
+}
+.pageRegister{
+    background-color: red;
+}
+
+
+.formulaireRegister {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   margin-top: 15%;
+}
 
 
 
@@ -26,7 +75,7 @@ nav {
     align-items: center;
     min-height: 100%;
     width: 15%;
-    background-color: #011527;
+    background-color:black;
     position: fixed;
     min-width: 50px;
 
@@ -45,14 +94,14 @@ nav {
 img {
     height: 150px;
     width: 150px;
-    border-radius: 40%;
+    border-radius: 50%;
 }
 
 
 ul {
     display: flex;
     width: 100%;
-    gap: 40px;
+    gap: 20px;
     flex-direction: column;
     list-style-type: none;
     /* background-color: black ; */
@@ -91,9 +140,9 @@ ul :hover {
 .champFormSession {
     display: flex;
     flex-direction: column;
-    background-color: #011527;
+    background-color: rgb(194, 187, 187) ;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     padding: 20px;
-    /* border-radius: 20px; */
     width: 35%;
 
 
@@ -126,8 +175,10 @@ input {
     width: 60%;
     gap: 20px;
     padding: 30px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 10px;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
 
 }
@@ -140,6 +191,7 @@ input {
     justify-content: center;
     gap: 10px;
     width: 100vw;
+    
 
 
 
@@ -154,7 +206,8 @@ input {
     width: 70%;
     display: flex;
     justify-content: center;
-    margin: 50px 0px 50px 0px;
+    margin: 50px 0px 0px 0px;
+
 
 
 
@@ -191,27 +244,28 @@ input {
 
 table {
     width: 60%;
-    color: black;
-    /* border-collapse: collapse; */
+    /* color: black; */
+    border-collapse: collapse;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 
 
 
 }
 
 .fa-pen-to-square {
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .fa-trash-can {
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .fa-square-plus {
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .fa-minus {
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .uil-check-circle {
@@ -223,10 +277,7 @@ table {
 }
 
 
-.champSession {
-    background-color: rgba(109, 108, 15, 0.766);
 
-}
 
 tr a {
     text-decoration: none;
@@ -234,10 +285,7 @@ tr a {
 
 }
 
-tr .champSession:hover {
-    background-color: aliceblue;
-    transition: 0.5s;
-}
+
 
 
 th,
@@ -246,17 +294,23 @@ td {
     text-align: center;
     padding: 10px;
     border-collapse: collapse;
-    border: 1px solid black;
-    color: white;
-    background-color: black;
+}
 
 
-
+tr{
+    background-color: rgb(206, 206, 206);
+  
+}
+tr:nth-child(even){
+    background-color: white;
+  
 
 }
 
+
 th {
-    background-color: #011527;
+   
+  color: black;
 }
 
 
@@ -312,30 +366,33 @@ main {
     display: flex;
    flex-direction: column ;
    gap: 50px;
+   padding-left: 25px;
    
 }
 
 
 .detailsSession {
-    background-color: #011527;
+   
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     margin-top: 20px;
     padding: 10px;
-    border-radius: 10px;
+    background-color: gray;
+    
 }
 
 .detailsSession h1,
 h2 {
-    color: white;
+    color:black;
 }
 
 
 .listDesStagiaire {
     display: flex;
     flex-direction: row;
+    gap: 20px;
 
     width: 60%;
 
@@ -358,6 +415,7 @@ tr td {
     flex-direction: row;
     /* gap: 20px;   */
     width: 60%;
+    gap: 20px;
 
 }
 
@@ -380,20 +438,21 @@ tr td {
 .formulaireStagiaires {
     display: flex;
     flex-direction: column;
-    background-color: #011527;
+    background-color: rgb(194, 187, 187) ;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     padding: 20px;
-    border-radius: 20px;
+   
 
 
 }
 
 .formulaireStagiaires label {
-    color: white;
+    color: black;
 }
 
 .formulaireStagiaires input {
     padding: 8px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .formulaireStagiaires span {
@@ -407,7 +466,7 @@ tr td {
 
 #stagiaire_submit {
     padding: 10px 20px 10px 20px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 
@@ -426,39 +485,19 @@ tr td {
     justify-content: center;
     flex-direction: column;
     width: 100%;
-
-}
-
-/* 
-.listFormateur {
-    background-color:bisque;
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
-    align-items: center;
-    justify-content: center;
     gap: 20px;
-    color: white;
+
 }
-
-.listFormateur span {
-    background-color : black;
-    display: flex;
-    width: 20%;
-    height: 50px;
-    align-items: center;
-    justify-content: center;
-    margin: 20px 0px 20px 0px;
-
-} */
 
 .formateurForm {
-    background-color: #2368a3;
+  
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border-radius: 10px;
+    background-color: rgb(194, 187, 187) ;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    margin-bottom: 20px;
 }
 
 .formateurForm div :nth-child(3) {
@@ -467,17 +506,12 @@ tr td {
 }
 
 .formateurForm h1 {
-    background-color: #011527;
-    color: white;
+
+    color: black;
     padding: 10px;
+    font-size: 35px;
 }
-
-
-
-
-
 /* fin formateur */
-
 
 
 
@@ -497,7 +531,7 @@ tr td {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* background-color: black; */
+
     padding: 20px;
   
 
@@ -517,10 +551,10 @@ tr td {
     display: flex;
     gap: 20px;
     flex-direction: column;
-    background-color: rgb(82, 4, 4);
+    background-color: rgb(194, 187, 187) ;
     padding: 20px;
-    border-radius: 10px;
-    color: aliceblue;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    
 }
 
 
@@ -528,10 +562,10 @@ tr td {
     display: flex;
     gap: 20px;
     flex-direction: column;
-    background-color: rgb(82, 4, 4);
     padding: 20px;
-    border-radius: 10px;
-    color: aliceblue;
+    background-color: rgb(194, 187, 187) ;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    
 
 
 
@@ -602,15 +636,19 @@ tr td {
     background-color: rosybrown;
     margin-top: 20px;
     padding: 20px;
-    border-radius: 20px;
+    background-color: rgb(194, 187, 187) ;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  
 
 }
 
 .sessionPreveusStagaiire {
     background-color: rosybrown;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 20px;
-    border-radius: 20px;
+    background-color: rgb(194, 187, 187) ;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
 
 }
 
@@ -623,6 +661,25 @@ tr td {
 }
 
 
+/* /------------------formations-----------/ */
+
+.formations {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formations table {
+    width: 30%;
+}
+
+td form {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
 
 
 
@@ -662,6 +719,15 @@ tr td {
         float: left;
         font-weight: bold;
     }
+    tr{
+        display: none;
+      
+    }
+    tr:nth-child(even){
+      display: none;
+      
+    
+    }
     
 
     
@@ -674,12 +740,12 @@ tr td {
         align-items: center;
         flex-direction: column;
         min-width: 100vw;
-        background-color: #2368a3;
+        /* background-color: #2368a3; */
     }
 
     body {
         max-width: 100%;
-        background-color: #2368a3;
+        /* background-color: #2368a3; */
     }
 
     .uil-align-center-justify {

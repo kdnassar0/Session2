@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FormationController!{% endblock %}
+
+{% block body %}
+
+<div class="formations">
+<table>
+    <tr>
+        <th>liste des formations</th>
+    </tr>
+    <tr>
+        <th>Nom formation</th>
+
+    </tr>
+{% for formation in formations %}
+<tr>
+    <td>{{ formation.nomFormation }}</td>
+    {# <td> <a href=" {{ path ('supprimer_formation',{'id':id.formation}) }}"></a>supprimer</td> #}
+</tr>
+
+{% endfor %}
+<tr> 
+     <td>
+        {{ form_start(formAddFormation) }}
+            {{ form_row(formAddFormation.nomFormation,{ 'label': 'NOM DE LA FORMATION' }) }}
+            {{ form_row(formAddFormation.submit, { 'label': 'Ajouter' }) }}
+        {{ form_end(formAddFormation) }}
+    </td>
+</tr>
+
+</table>
+
+
+</div>
+{% endblock %}
