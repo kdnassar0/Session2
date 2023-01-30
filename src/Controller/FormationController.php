@@ -10,21 +10,27 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DomCrawler\Form;
 
 class FormationController extends AbstractController
 {
         /**
          * @Route("/formation", name="app_formation")
          * @Route("/formation/add", name="add_formation")
+         * @Route("/formation/edit/{id}", name="edit_formation")
          */
     public function index(ManagerRegistry $doctrine,FormationRepository $fr,Request $request,Formation $formation=null): Response
     {
 
         $formations= $fr->findBy([],['nomFormation'=>'ASC']);
-
+        
+        
+        if(!$formation){
+            $formation = new Formation();
+        }
         $form = $this->createForm(FormationType::class,$formation) ;
         $form->handleRequest($request);   
- 
+        
  
         //isvalid pour verifier les donnees
         if($form->isSubmitted() && $form->isValid())
@@ -50,13 +56,14 @@ class FormationController extends AbstractController
         ]);
     }
 
-      /**
+
+     /**
          * @Route("/formation/{id}/supprimer", name="supprimer_formation")
      */
 
     public function supprimerUnFormation(ManagerRegistry $doctrine,
     Formation $formation){
-   
+     
        $entityManager = $doctrine->getManager(); 
        $entityManager->remove($formation);
        $entityManager->flush();

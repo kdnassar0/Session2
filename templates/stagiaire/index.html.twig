@@ -25,7 +25,7 @@
         <td>    <a href="{{path ('show_stagiaire',{'id':stagiaire.id})}}">{{ stagiaire.nomStagiaire }} </a></td>
         <td>  {{ stagiaire.prenomStagiaire }}</td>
         <td>   <a href=" {{ path ('supprimer_stagiaire',{'id':stagiaire.id}) }}"><i class="fa-regular fa-trash-can"></i></a> </td>
-        <td> <a href=" {{ path ('edit_stagiaire',{'id':stagiaire.id}) }}"> edit</a> </td>
+        <td class="iconEditRemove"><a href=" {{ path ('edit_stagiaire',{'id':stagiaire.id}) }}"> <i class="fa-regular fa-pen-to-square"></i></a> </td>
 
 
     </tr>     
