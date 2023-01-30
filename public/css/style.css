@@ -92,8 +92,8 @@ nav {
 }
 
 img {
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 120px;
     border-radius: 50%;
 }
 
@@ -217,13 +217,13 @@ input {
 
 .sessionElements {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     flex-direction: row;
     width: 100%;
     gap: 10px;
     background: #fff;
-    height: 100vh;
+    height: 100%;
 }
 
 /* fin session  */
@@ -366,7 +366,7 @@ main {
     display: flex;
    flex-direction: column ;
    gap: 50px;
-   padding-left: 25px;
+   padding-left: 20px;
    
 }
 
@@ -672,6 +672,7 @@ tr td {
 
 .formations table {
     width: 30%;
+    margin-top: 200px;
 }
 
 td form {
@@ -1099,7 +1100,7 @@ td form {
     .toutsPageSession {
         display: flex;
         flex-direction: column;
-        gap: 100px;
+      
     }
 
 }
@@ -1109,7 +1110,7 @@ td form {
     .toutsPageSession {
         display: flex;
         flex-direction: column;
-        gap: 150px;
+      
     }
 
 }
@@ -1173,18 +1174,19 @@ background-color: rgba(0, 0, 0, 0.668);
     
 
     .sessionElements {
-        /* background-color: #011527; */
+       
         display: flex;
-        justify-content: center;
+        justify-content: center ; 
         align-items: center;
         flex-direction: column;
         min-width: 100vw;
-        /* background-color: #2368a3; */
+      
+        
     }
 
     body {
         max-width: 100%;
-        /* background-color: #2368a3; */
+      
   
     }
 
